@@ -1,0 +1,120 @@
+/* NOTE: Authoring source, not shipped. hct() is transpiled to hex by
+   build-themes.mjs, because a consumer must not need a PostCSS plugin. */
+
+:root,
+[data-ui-theme="tool"] {
+	color-scheme: light;
+
+	--ui-brand-seed: #86efac;
+
+	--ui-bg: hct(from var(--ui-brand-seed) h 2 95);
+	--ui-bg-muted: hct(from var(--ui-brand-seed) h 4 85);
+	--ui-surface: hct(from var(--ui-brand-seed) h 4 88);
+	--ui-panel: hct(from var(--ui-brand-seed) h 3 98);
+	--ui-field: hct(from var(--ui-brand-seed) h 3 99);
+	--ui-hover: hct(from var(--ui-brand-seed) h 6 90);
+	--ui-selected: hct(from var(--ui-brand-seed) h 8 84);
+	--ui-backdrop: color-mix(in srgb, var(--ui-bg) 65%, transparent);
+
+	--ui-fg: hct(from var(--ui-brand-seed) h 5.9 1.7);
+	--ui-fg-secondary: hct(from var(--ui-brand-seed) h 13.4 19.2);
+	--ui-fg-muted: hct(from var(--ui-brand-seed) h 16 34);
+	--ui-on-accent: hct(from var(--ui-brand-seed) h 2 95);
+	--ui-on-danger: hct(from var(--ui-brand-seed) h 2 95);
+
+	--ui-line: hct(from var(--ui-brand-seed) h 13.1 69.4);
+	--ui-line-strong: hct(from var(--ui-brand-seed) h 18 44);
+	--ui-line-w: 2px;
+
+	--ui-accent: hct(from var(--ui-brand-seed) h 80 48);
+	--ui-accent-hover: hct(from var(--ui-brand-seed) h 65 55);
+	--ui-accent-ink: hct(from var(--ui-brand-seed) h 85 26);
+	--ui-accent-surface: color-mix(in oklch, var(--ui-accent) 12%, var(--ui-panel));
+	--ui-success: hct(160 80 48);
+	--ui-success-surface: color-mix(in oklch, var(--ui-success) 14%, var(--ui-panel));
+	--ui-warning: hct(80 80 48);
+	--ui-warning-surface: color-mix(in oklch, var(--ui-warning) 16%, var(--ui-panel));
+	--ui-danger: hct(30 80 48);
+	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 12%, var(--ui-panel));
+	--ui-info: hct(340 80 48);
+	--ui-focus: var(--ui-accent);
+
+	--ui-r-chip: 0px;
+	--ui-r-control: 4px;
+	--ui-r-panel: 0px;
+	--ui-r-pill: 999px;
+
+	--ui-shadow-color: hct(from var(--ui-brand-seed) h 8 40);
+	--ui-shadow-control: none;
+	--ui-shadow-raised: none;
+	--ui-shadow-panel: none;
+	--ui-shadow-pop: 0 6px 16px rgb(0 0 0 / 0.16);
+
+	--ui-control-h-sm: 24px;
+	--ui-control-h-md: 32px;
+	--ui-control-h-lg: 40px;
+
+	--ui-space-1: 4px;
+	--ui-space-2: 8px;
+	--ui-space-3: 12px;
+	--ui-space-4: 16px;
+	--ui-space-5: 24px;
+	--ui-space-6: 32px;
+	--ui-space-7: 48px;
+	--ui-space-8: 64px;
+
+	--ui-font: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+	--ui-font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+	--ui-fs-xs: 10px;
+	--ui-fs-sm: 12px;
+	--ui-fs-md: 14px;
+	--ui-fs-lg: 16px;
+	--ui-fs-xl: 24px;
+	--ui-lh: 1.5;
+
+	--ui-label-font: var(--ui-font-mono);
+	--ui-label-transform: uppercase;
+	--ui-label-track: 0.08em;
+
+	--ui-duration: 0.15s;
+}
+
+:root[data-ui-mode="dark"],
+[data-ui-theme="tool"][data-ui-mode="dark"] {
+	color-scheme: dark;
+
+	--ui-brand-seed: #86efac;
+
+	--ui-bg: hct(from var(--ui-brand-seed) h 2 16);
+	--ui-bg-muted: hct(from var(--ui-brand-seed) h 4 24);
+	--ui-surface: hct(from var(--ui-brand-seed) h 4 22);
+	--ui-panel: hct(from var(--ui-brand-seed) h 3 26);
+	--ui-field: hct(from var(--ui-brand-seed) h 3 22);
+	--ui-hover: hct(from var(--ui-brand-seed) h 5 32);
+	--ui-selected: hct(from var(--ui-brand-seed) h 6 38);
+	--ui-backdrop: color-mix(in srgb, var(--ui-bg) 55%, transparent);
+
+	--ui-fg: hct(from var(--ui-brand-seed) h 25 90);
+	--ui-fg-secondary: hct(from var(--ui-brand-seed) h 22 70);
+	--ui-fg-muted: hct(from var(--ui-brand-seed) h 18 52);
+	--ui-on-accent: hct(from var(--ui-brand-seed) h 2 14);
+	--ui-on-danger: hct(from var(--ui-brand-seed) h 2 14);
+
+	--ui-line: hct(from var(--ui-brand-seed) h 8 40);
+	--ui-line-strong: hct(from var(--ui-brand-seed) h 12 52);
+
+	--ui-accent: hct(from var(--ui-brand-seed) h 60 56);
+	--ui-accent-hover: hct(from var(--ui-brand-seed) h 65 60);
+	--ui-accent-ink: hct(from var(--ui-brand-seed) h 85 82);
+	--ui-accent-surface: color-mix(in oklch, var(--ui-accent) 18%, var(--ui-panel));
+	--ui-success: hct(160 65 55);
+	--ui-success-surface: color-mix(in oklch, var(--ui-success) 20%, var(--ui-panel));
+	--ui-warning: hct(80 65 55);
+	--ui-warning-surface: color-mix(in oklch, var(--ui-warning) 20%, var(--ui-panel));
+	--ui-danger: hct(30 70 55);
+	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 18%, var(--ui-panel));
+	--ui-info: hct(340 65 55);
+
+	--ui-shadow-color: hct(from var(--ui-brand-seed) h 8 40);
+	--ui-shadow-pop: 0 6px 16px rgb(0 0 0 / 0.5);
+}

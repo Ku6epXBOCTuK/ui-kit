@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>@ku6epxboctuk/ui tokens</title>
+		<link rel="stylesheet" href="../node_modules/@fontsource/ibm-plex-sans/400.css" />
+		<link rel="stylesheet" href="../node_modules/@fontsource/ibm-plex-sans/600.css" />
+		<link rel="stylesheet" href="../node_modules/@fontsource/ibm-plex-mono/400.css" />
+		<link rel="stylesheet" href="../node_modules/@fontsource/nunito/400.css" />
+		<link rel="stylesheet" href="../node_modules/@fontsource/nunito/700.css" />
+		<link rel="stylesheet" href="../node_modules/@fontsource/comfortaa/400.css" />
+		<link rel="stylesheet" href="../tokens.css" />
+		<link rel="stylesheet" href="../tokens/kawaii.css" />
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				padding: 24px;
+				background: #101010;
+				font-family: ui-monospace, monospace;
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 16px;
+			}
+
+			.pane {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				padding: 20px;
+				background: var(--ui-bg);
+				color: var(--ui-fg);
+				border: var(--ui-line-w) solid var(--ui-line);
+				border-radius: var(--ui-r-panel);
+				font-family: var(--ui-font);
+				font-size: var(--ui-fs-sm);
+				line-height: var(--ui-lh);
+			}
+
+			.pane h2 {
+				margin: 0;
+				font-family: var(--ui-label-font);
+				font-size: var(--ui-fs-xl);
+				text-transform: var(--ui-label-transform);
+				letter-spacing: var(--ui-label-track);
+			}
+
+			.label {
+				margin: 0 0 6px;
+				color: var(--ui-fg-muted);
+				font-family: var(--ui-label-font);
+				font-size: var(--ui-fs-xs);
+				text-transform: var(--ui-label-transform);
+				letter-spacing: var(--ui-label-track);
+			}
+
+			.chips {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+			}
+
+			.chip {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+				padding: 3px 6px;
+				background: var(--ui-panel);
+				border: var(--ui-line-w) solid var(--ui-line);
+				border-radius: var(--ui-r-chip);
+				font-size: var(--ui-fs-xs);
+				color: var(--ui-fg-secondary);
+			}
+
+			.chip i {
+				width: 14px;
+				height: 14px;
+				border-radius: calc(var(--ui-r-chip) / 2);
+			}
+
+			.surfaces {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+				gap: 8px;
+			}
+
+			.surface {
+				height: 52px;
+				display: flex;
+				align-items: flex-end;
+				padding: 4px;
+				border: var(--ui-line-w) solid var(--ui-line);
+				border-radius: var(--ui-r-control);
+				font-size: var(--ui-fs-xs);
+				color: var(--ui-fg-muted);
+			}
+
+			.sample {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				height: var(--ui-control-h-md);
+				padding: 0 12px;
+				background: var(--ui-accent);
+				color: var(--ui-on-accent);
+				border: var(--ui-line-w) solid var(--ui-accent);
+				border-radius: var(--ui-r-control);
+				box-shadow: var(--ui-shadow-control);
+				font: inherit;
+				transition: background var(--ui-duration);
+			}
+
+			.btn.ghost {
+				background: var(--ui-panel);
+				color: var(--ui-fg);
+				border-color: var(--ui-line);
+			}
+
+			.btn.danger {
+				background: var(--ui-danger);
+				color: var(--ui-on-danger);
+				border-color: var(--ui-danger);
+			}
+
+			.field {
+				display: flex;
+				align-items: center;
+				height: var(--ui-control-h-md);
+				padding: 0 8px;
+				background: var(--ui-field);
+				border: var(--ui-line-w) solid var(--ui-line);
+				border-radius: var(--ui-r-control);
+				color: var(--ui-fg);
+			}
+
+			.field.focus {
+				border-color: var(--ui-focus);
+				outline: 2px solid var(--ui-focus);
+				outline-offset: 1px;
+			}
+
+			.badge {
+				display: inline-flex;
+				align-items: center;
+				padding: 2px 8px;
+				background: var(--ui-accent-surface);
+				color: var(--ui-accent-ink);
+				border-radius: var(--ui-r-chip);
+				font-size: var(--ui-fs-xs);
+			}
+
+			.scale {
+				display: flex;
+				align-items: baseline;
+				gap: 12px;
+			}
+
+			.scale span {
+				font-size: var(--ui-fs-xs);
+				color: var(--ui-fg-muted);
+			}
+
+			.radii {
+				display: flex;
+				gap: 8px;
+			}
+
+			.radii div {
+				width: 44px;
+				height: 44px;
+				display: grid;
+				place-items: center;
+				background: var(--ui-panel);
+				border: var(--ui-line-w) solid var(--ui-line);
+				font-size: var(--ui-fs-xs);
+				color: var(--ui-fg-muted);
+			}
+
+			.pop {
+				padding: 8px;
+				background: var(--ui-panel);
+				border: var(--ui-line-w) solid var(--ui-line);
+				border-radius: var(--ui-r-control);
+				box-shadow: var(--ui-shadow-pop);
+			}
+
+			.panel {
+				padding: 8px;
+				background: var(--ui-panel);
+				border: var(--ui-line-w) solid var(--ui-line);
+				border-radius: var(--ui-r-panel);
+				box-shadow: var(--ui-shadow-panel);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="grid">
+			<section class="pane" data-ui-theme="tool" data-ui-mode="light">
+				<h2>tool light</h2>
+				<div>
+					<p class="label">surfaces</p>
+					<div class="surfaces">
+						<div class="surface" style="background: var(--ui-bg)">bg</div>
+						<div class="surface" style="background: var(--ui-bg-muted)">bg-muted</div>
+						<div class="surface" style="background: var(--ui-surface)">surface</div>
+						<div class="surface" style="background: var(--ui-panel)">panel</div>
+						<div class="surface" style="background: var(--ui-field)">field</div>
+						<div class="surface" style="background: var(--ui-hover)">hover</div>
+						<div class="surface" style="background: var(--ui-selected)">selected</div>
+					</div>
+				</div>
+				<div>
+					<p class="label">text, lines, intents</p>
+					<div class="chips">
+						<span class="chip"><i style="background: var(--ui-fg)"></i>fg</span>
+						<span class="chip"><i style="background: var(--ui-fg-secondary)"></i>fg-secondary</span>
+						<span class="chip"><i style="background: var(--ui-fg-muted)"></i>fg-muted</span>
+						<span class="chip"><i style="background: var(--ui-line)"></i>line</span>
+						<span class="chip"><i style="background: var(--ui-line-strong)"></i>line-strong</span>
+						<span class="chip"><i style="background: var(--ui-accent)"></i>accent</span>
+						<span class="chip"><i style="background: var(--ui-success)"></i>success</span>
+						<span class="chip"><i style="background: var(--ui-warning)"></i>warning</span>
+						<span class="chip"><i style="background: var(--ui-danger)"></i>danger</span>
+						<span class="chip"><i style="background: var(--ui-info)"></i>info</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">controls</p>
+					<div class="sample">
+						<button class="btn">Accent</button>
+						<button class="btn ghost">Ghost</button>
+						<button class="btn danger">Delete</button>
+						<span class="field">field value</span>
+						<span class="field focus">focus</span>
+						<span class="badge">badge</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">type and shape</p>
+					<div class="scale">
+						<span>xs 10</span><span style="font-size: var(--ui-fs-sm)">sm 12</span>
+						<span style="font-size: var(--ui-fs-md)">md 14</span>
+						<span style="font-size: var(--ui-fs-lg)">lg 16</span>
+						<span style="font-size: var(--ui-fs-xl)">xl 24</span>
+					</div>
+					<div class="radii" style="margin-top: 8px">
+						<div style="border-radius: var(--ui-r-chip)">chip</div>
+						<div style="border-radius: var(--ui-r-control)">ctrl</div>
+						<div style="border-radius: var(--ui-r-panel)">panel</div>
+					</div>
+				</div>
+				<div class="sample">
+					<div class="panel">panel shadow</div>
+					<div class="pop">pop shadow</div>
+				</div>
+				<form>
+					<input
+						style="
+							height: var(--ui-control-h-md);
+							padding: 0 8px;
+							background: var(--ui-field);
+							color: var(--ui-fg);
+							border: var(--ui-line-w) solid var(--ui-line);
+							border-radius: var(--ui-r-control);
+							font: inherit;
+						"
+						value="native input"
+					/>
+				</form>
+			</section>
+
+			<section class="pane" data-ui-theme="tool" data-ui-mode="dark">
+				<h2>tool dark</h2>
+				<div>
+					<p class="label">surfaces</p>
+					<div class="surfaces">
+						<div class="surface" style="background: var(--ui-bg)">bg</div>
+						<div class="surface" style="background: var(--ui-bg-muted)">bg-muted</div>
+						<div class="surface" style="background: var(--ui-surface)">surface</div>
+						<div class="surface" style="background: var(--ui-panel)">panel</div>
+						<div class="surface" style="background: var(--ui-field)">field</div>
+						<div class="surface" style="background: var(--ui-hover)">hover</div>
+						<div class="surface" style="background: var(--ui-selected)">selected</div>
+					</div>
+				</div>
+				<div>
+					<p class="label">text, lines, intents</p>
+					<div class="chips">
+						<span class="chip"><i style="background: var(--ui-fg)"></i>fg</span>
+						<span class="chip"><i style="background: var(--ui-fg-secondary)"></i>fg-secondary</span>
+						<span class="chip"><i style="background: var(--ui-fg-muted)"></i>fg-muted</span>
+						<span class="chip"><i style="background: var(--ui-line)"></i>line</span>
+						<span class="chip"><i style="background: var(--ui-line-strong)"></i>line-strong</span>
+						<span class="chip"><i style="background: var(--ui-accent)"></i>accent</span>
+						<span class="chip"><i style="background: var(--ui-success)"></i>success</span>
+						<span class="chip"><i style="background: var(--ui-warning)"></i>warning</span>
+						<span class="chip"><i style="background: var(--ui-danger)"></i>danger</span>
+						<span class="chip"><i style="background: var(--ui-info)"></i>info</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">controls</p>
+					<div class="sample">
+						<button class="btn">Accent</button>
+						<button class="btn ghost">Ghost</button>
+						<button class="btn danger">Delete</button>
+						<span class="field">field value</span>
+						<span class="field focus">focus</span>
+						<span class="badge">badge</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">type and shape</p>
+					<div class="scale">
+						<span>xs 10</span><span style="font-size: var(--ui-fs-sm)">sm 12</span>
+						<span style="font-size: var(--ui-fs-md)">md 14</span>
+						<span style="font-size: var(--ui-fs-lg)">lg 16</span>
+						<span style="font-size: var(--ui-fs-xl)">xl 24</span>
+					</div>
+					<div class="radii" style="margin-top: 8px">
+						<div style="border-radius: var(--ui-r-chip)">chip</div>
+						<div style="border-radius: var(--ui-r-control)">ctrl</div>
+						<div style="border-radius: var(--ui-r-panel)">panel</div>
+					</div>
+				</div>
+				<div class="sample">
+					<div class="panel">panel shadow</div>
+					<div class="pop">pop shadow</div>
+				</div>
+				<form>
+					<input
+						style="
+							height: var(--ui-control-h-md);
+							padding: 0 8px;
+							background: var(--ui-field);
+							color: var(--ui-fg);
+							border: var(--ui-line-w) solid var(--ui-line);
+							border-radius: var(--ui-r-control);
+							font: inherit;
+						"
+						value="native input"
+					/>
+				</form>
+			</section>
+
+			<section class="pane" data-ui-theme="kawaii" data-ui-mode="light">
+				<h2>kawaii light</h2>
+				<div>
+					<p class="label">surfaces</p>
+					<div class="surfaces">
+						<div class="surface" style="background: var(--ui-bg)">bg</div>
+						<div class="surface" style="background: var(--ui-bg-muted)">bg-muted</div>
+						<div class="surface" style="background: var(--ui-surface)">surface</div>
+						<div class="surface" style="background: var(--ui-panel)">panel</div>
+						<div class="surface" style="background: var(--ui-field)">field</div>
+						<div class="surface" style="background: var(--ui-hover)">hover</div>
+						<div class="surface" style="background: var(--ui-selected)">selected</div>
+					</div>
+				</div>
+				<div>
+					<p class="label">text, lines, intents</p>
+					<div class="chips">
+						<span class="chip"><i style="background: var(--ui-fg)"></i>fg</span>
+						<span class="chip"><i style="background: var(--ui-fg-secondary)"></i>fg-secondary</span>
+						<span class="chip"><i style="background: var(--ui-fg-muted)"></i>fg-muted</span>
+						<span class="chip"><i style="background: var(--ui-line)"></i>line</span>
+						<span class="chip"><i style="background: var(--ui-line-strong)"></i>line-strong</span>
+						<span class="chip"><i style="background: var(--ui-accent)"></i>accent</span>
+						<span class="chip"><i style="background: var(--ui-success)"></i>success</span>
+						<span class="chip"><i style="background: var(--ui-warning)"></i>warning</span>
+						<span class="chip"><i style="background: var(--ui-danger)"></i>danger</span>
+						<span class="chip"><i style="background: var(--ui-info)"></i>info</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">controls</p>
+					<div class="sample">
+						<button class="btn">Accent</button>
+						<button class="btn ghost">Ghost</button>
+						<button class="btn danger">Delete</button>
+						<span class="field">field value</span>
+						<span class="field focus">focus</span>
+						<span class="badge">badge</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">type and shape</p>
+					<div class="scale">
+						<span>xs 14</span><span style="font-size: var(--ui-fs-sm)">sm 15</span>
+						<span style="font-size: var(--ui-fs-md)">md 18</span>
+						<span style="font-size: var(--ui-fs-lg)">lg 22</span>
+						<span style="font-size: var(--ui-fs-xl)">xl 28</span>
+					</div>
+					<div class="radii" style="margin-top: 8px">
+						<div style="border-radius: var(--ui-r-chip)">chip</div>
+						<div style="border-radius: var(--ui-r-control)">ctrl</div>
+						<div style="border-radius: var(--ui-r-panel)">panel</div>
+					</div>
+				</div>
+				<div class="sample">
+					<div class="panel">panel shadow</div>
+					<div class="pop">pop shadow</div>
+				</div>
+				<form>
+					<input
+						style="
+							height: var(--ui-control-h-md);
+							padding: 0 8px;
+							background: var(--ui-field);
+							color: var(--ui-fg);
+							border: var(--ui-line-w) solid var(--ui-line);
+							border-radius: var(--ui-r-control);
+							font: inherit;
+						"
+						value="native input"
+					/>
+				</form>
+			</section>
+
+			<section class="pane" data-ui-theme="kawaii" data-ui-mode="dark">
+				<h2>kawaii dark</h2>
+				<div>
+					<p class="label">surfaces</p>
+					<div class="surfaces">
+						<div class="surface" style="background: var(--ui-bg)">bg</div>
+						<div class="surface" style="background: var(--ui-bg-muted)">bg-muted</div>
+						<div class="surface" style="background: var(--ui-surface)">surface</div>
+						<div class="surface" style="background: var(--ui-panel)">panel</div>
+						<div class="surface" style="background: var(--ui-field)">field</div>
+						<div class="surface" style="background: var(--ui-hover)">hover</div>
+						<div class="surface" style="background: var(--ui-selected)">selected</div>
+					</div>
+				</div>
+				<div>
+					<p class="label">text, lines, intents</p>
+					<div class="chips">
+						<span class="chip"><i style="background: var(--ui-fg)"></i>fg</span>
+						<span class="chip"><i style="background: var(--ui-fg-secondary)"></i>fg-secondary</span>
+						<span class="chip"><i style="background: var(--ui-fg-muted)"></i>fg-muted</span>
+						<span class="chip"><i style="background: var(--ui-line)"></i>line</span>
+						<span class="chip"><i style="background: var(--ui-line-strong)"></i>line-strong</span>
+						<span class="chip"><i style="background: var(--ui-accent)"></i>accent</span>
+						<span class="chip"><i style="background: var(--ui-success)"></i>success</span>
+						<span class="chip"><i style="background: var(--ui-warning)"></i>warning</span>
+						<span class="chip"><i style="background: var(--ui-danger)"></i>danger</span>
+						<span class="chip"><i style="background: var(--ui-info)"></i>info</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">controls</p>
+					<div class="sample">
+						<button class="btn">Accent</button>
+						<button class="btn ghost">Ghost</button>
+						<button class="btn danger">Delete</button>
+						<span class="field">field value</span>
+						<span class="field focus">focus</span>
+						<span class="badge">badge</span>
+					</div>
+				</div>
+				<div>
+					<p class="label">type and shape</p>
+					<div class="scale">
+						<span>xs 14</span><span style="font-size: var(--ui-fs-sm)">sm 15</span>
+						<span style="font-size: var(--ui-fs-md)">md 18</span>
+						<span style="font-size: var(--ui-fs-lg)">lg 22</span>
+						<span style="font-size: var(--ui-fs-xl)">xl 28</span>
+					</div>
+					<div class="radii" style="margin-top: 8px">
+						<div style="border-radius: var(--ui-r-chip)">chip</div>
+						<div style="border-radius: var(--ui-r-control)">ctrl</div>
+						<div style="border-radius: var(--ui-r-panel)">panel</div>
+					</div>
+				</div>
+				<div class="sample">
+					<div class="panel">panel shadow</div>
+					<div class="pop">pop shadow</div>
+				</div>
+				<form>
+					<input
+						style="
+							height: var(--ui-control-h-md);
+							padding: 0 8px;
+							background: var(--ui-field);
+							color: var(--ui-fg);
+							border: var(--ui-line-w) solid var(--ui-line);
+							border-radius: var(--ui-r-control);
+							font: inherit;
+						"
+						value="native input"
+					/>
+				</form>
+			</section>
+		</div>
+	</body>
+</html>

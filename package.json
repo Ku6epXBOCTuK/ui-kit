@@ -1,0 +1,29 @@
+{
+	"name": "@ku6epxboctuk/ui",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"description": "Design tokens and Svelte 5 components shared by my projects",
+	"exports": {
+		"./tokens.css": "./tokens.css",
+		"./kawaii.css": "./tokens/kawaii.css"
+	},
+	"files": [
+		"tokens.css",
+		"tokens/",
+		"src/"
+	],
+	"scripts": {
+		"build:themes": "node scripts/build-themes.mjs",
+		"check:tokens": "node scripts/check-tokens.mjs",
+		"preview": "node scripts/preview.mjs"
+	},
+	"devDependencies": {
+		"@fontsource/comfortaa": "^5.3.0",
+		"@fontsource/ibm-plex-mono": "^5.3.0",
+		"@fontsource/ibm-plex-sans": "^5.3.0",
+		"@fontsource/nunito": "^5.3.0",
+		"@panmdaa/colors": "^0.4.2",
+		"postcss": "^8.5.26"
+	}
+}
