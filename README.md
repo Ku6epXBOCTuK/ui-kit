@@ -52,10 +52,30 @@ Intent colours come in six tones only: neutral, accent, success, warning, danger
 
 Fonts are not shipped. The `tool` theme expects `@fontsource/ibm-plex-sans` and `@fontsource/ibm-plex-mono`, `kawaii` expects `@fontsource/nunito` and `@fontsource/comfortaa`. If they are missing the stacks fall back and the layout still holds.
 
+## Headless layer
+
+`src/headless` holds behaviour only: no markup, no CSS, no icons, no strings. The state machines are `.svelte.ts`, so they use runes and stay reactive when a component reads them.
+
+```ts
+import { createSelect } from "@ku6epxboctuk/ui/headless/select";
+import { createTagInput } from "@ku6epxboctuk/ui/headless/tags";
+```
+
+`createSelect<T>(config)` owns `open`, `query`, `filtered`, `active` and `activeIndex`, and returns `show hide toggle setQuery move moveTo pick pickActive handleKeydown`. `handleKeydown` returns whether it consumed the key, so the caller can fall through. Config: `items` and `getLabel` required, then `getKeywords`, `filter`, `onPick`, `closeOnPick` (default true), `onOpen`, `onClose`, `onQuery`, `wrap` (default true).
+
+`createTagInput(config)` wraps a select of suggestions and returns `text available chips select setText clear add commit remove handleKeydown`. A commit splits on whitespace and commas, lowercases, drops duplicates and already chosen tags, then reports the new list through `onChange`. `onUnknown` is awaited for every committed tag that is not in `suggestions`.
+
+Two things to know:
+
+- `show()` and `hide()` reset the query without telling `onQuery`, so an owner that fetches on every keystroke has to clear its own results in `onOpen` and `onClose`.
+- Keyboard handling is the machine's job, focus and scroll position are the component's. `activeIndex` is there for `aria-activedescendant`.
+
 ## Scripts
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run it after editing the source.
 - `pnpm check:tokens` asserts that both themes define the same 61 names, that a dark block only overrides names from its own light block, that no `hct()` reaches a shipped file, and that every `var(--ui-*)` in the package and the preview resolves.
+- `pnpm test` runs the headless specs in `src/**/*.spec.svelte.ts`.
+- `pnpm check` runs `svelte-check` against `tsconfig.json`.
 - `pnpm preview` serves the token page on http://localhost:4321/preview/ with all four theme and mode combinations side by side.
 
 ## Known properties of the source themes

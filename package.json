@@ -6,7 +6,9 @@
 	"description": "Design tokens and Svelte 5 components shared by my projects",
 	"exports": {
 		"./tokens.css": "./tokens.css",
-		"./kawaii.css": "./tokens/kawaii.css"
+		"./kawaii.css": "./tokens/kawaii.css",
+		"./headless/*": "./src/headless/*.svelte.ts",
+		"./ui/*": "./src/ui/*.svelte"
 	},
 	"files": [
 		"tokens.css",
@@ -16,7 +18,12 @@
 	"scripts": {
 		"build:themes": "node scripts/build-themes.mjs",
 		"check:tokens": "node scripts/check-tokens.mjs",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"test": "vitest run",
 		"preview": "node scripts/preview.mjs"
+	},
+	"peerDependencies": {
+		"svelte": "^5.57.0"
 	},
 	"devDependencies": {
 		"@fontsource/comfortaa": "^5.3.0",
@@ -24,6 +31,11 @@
 		"@fontsource/ibm-plex-sans": "^5.3.0",
 		"@fontsource/nunito": "^5.3.0",
 		"@panmdaa/colors": "^0.4.2",
-		"postcss": "^8.5.26"
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"postcss": "^8.5.26",
+		"svelte": "^5.57.2",
+		"svelte-check": "^4.7.7",
+		"typescript": "^6.0.3",
+		"vitest": "^4.1.12"
 	}
 }
