@@ -21,6 +21,7 @@
 	--ui-fg-muted: hct(from var(--ui-brand-seed) h 16 34);
 	--ui-on-accent: hct(from var(--ui-brand-seed) h 2 95);
 	--ui-on-danger: hct(from var(--ui-brand-seed) h 2 95);
+	--ui-on-intent: hct(from var(--ui-brand-seed) h 5 12);
 
 	--ui-line: hct(from var(--ui-brand-seed) h 13.1 69.4);
 	--ui-line-strong: hct(from var(--ui-brand-seed) h 18 44);
@@ -37,6 +38,7 @@
 	--ui-danger: hct(30 80 48);
 	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 12%, var(--ui-panel));
 	--ui-info: hct(340 80 48);
+	--ui-info-surface: color-mix(in oklch, var(--ui-info) 12%, var(--ui-panel));
 	--ui-focus: var(--ui-accent);
 
 	--ui-r-chip: 0px;
@@ -114,6 +116,7 @@
 	--ui-danger: hct(30 70 55);
 	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 18%, var(--ui-panel));
 	--ui-info: hct(340 65 55);
+	--ui-info-surface: color-mix(in oklch, var(--ui-info) 18%, var(--ui-panel));
 
 	--ui-shadow-color: hct(from var(--ui-brand-seed) h 8 40);
 	--ui-shadow-pop: 0 6px 16px rgb(0 0 0 / 0.5);

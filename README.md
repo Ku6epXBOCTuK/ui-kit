@@ -17,15 +17,15 @@ The tokens are the only way a component learns how it should look. A component n
 
 ## Tokens
 
-61 custom properties, all prefixed `--ui-`, in six groups.
+63 custom properties, all prefixed `--ui-`, in six groups.
 
 Surfaces: `--ui-bg --ui-bg-muted --ui-surface --ui-panel --ui-field --ui-hover --ui-selected --ui-backdrop`
 
-Text: `--ui-fg --ui-fg-secondary --ui-fg-muted --ui-on-accent --ui-on-danger`
+Text: `--ui-fg --ui-fg-secondary --ui-fg-muted --ui-on-accent --ui-on-danger --ui-on-intent`
 
 Lines: `--ui-line --ui-line-strong --ui-line-w`
 
-Intent: `--ui-accent --ui-accent-hover --ui-accent-ink --ui-accent-surface --ui-success --ui-success-surface --ui-warning --ui-warning-surface --ui-danger --ui-danger-surface --ui-info --ui-focus`
+Intent: `--ui-accent --ui-accent-hover --ui-accent-ink --ui-accent-surface --ui-success --ui-success-surface --ui-warning --ui-warning-surface --ui-danger --ui-danger-surface --ui-info --ui-info-surface --ui-focus`
 
 Shape: `--ui-r-chip --ui-r-control --ui-r-panel --ui-r-pill --ui-shadow-color --ui-shadow-control --ui-shadow-raised --ui-shadow-panel --ui-shadow-pop`
 
@@ -70,11 +70,30 @@ Two things to know:
 - `show()` and `hide()` reset the query without telling `onQuery`, so an owner that fetches on every keystroke has to clear its own results in `onOpen` and `onClose`.
 - Keyboard handling is the machine's job, focus and scroll position are the component's. `activeIndex` is there for `aria-activedescendant`.
 
+## Styled layer
+
+`src/ui` holds the components. Each one reads `--ui-*` tokens only and exposes `class`, `data-ui` and `data-*` attributes as the escape hatches. None of them import an icon or hold a user-facing string.
+
+```svelte
+import Button from "@ku6epxboctuk/ui/ui/Button";
+```
+
+| Component | Props that matter |
+| --- | --- |
+| `Button` | `variant` primary/secondary/ghost/danger, `size` sm/md/lg, `icon` and `iconAfter` snippets, `loading` |
+| `IconButton` | required `label` for `aria-label`, `variant` ghost/secondary/danger, `size`, `active`, icon as children |
+| `Badge` | `tone` neutral/accent/success/warning/danger/info, `variant` soft/solid/outline, `size`, `dot` |
+| `Field` | `label`, `hint`, `error`, `required`; children receive the generated control id |
+| `TextInput` | `bind:value`, `size`, `invalid`; everything else is a native input attribute |
+
+They extend the matching `HTMLButtonAttributes` / `HTMLInputAttributes`, so `disabled`, `type`, `name`, `aria-*` and event handlers pass straight through.
+
 ## Scripts
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run it after editing the source.
-- `pnpm check:tokens` asserts that both themes define the same 61 names, that a dark block only overrides names from its own light block, that no `hct()` reaches a shipped file, and that every `var(--ui-*)` in the package and the preview resolves.
+- `pnpm check:tokens` asserts that both themes define the same 63 names, that a dark block only overrides names from its own light block, that no `hct()` reaches a shipped file, and that every `var(--ui-*)` in the package and the preview resolves.
 - `pnpm test` runs the headless specs in `src/**/*.spec.svelte.ts`.
+- `pnpm gallery` serves the component gallery on port 4322 with the four theme and mode combinations side by side.
 - `pnpm check` runs `svelte-check` against `tsconfig.json`.
 - `pnpm preview` serves the token page on http://localhost:4321/preview/ with all four theme and mode combinations side by side.
 

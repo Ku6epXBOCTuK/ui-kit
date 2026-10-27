@@ -20,6 +20,7 @@
 		"check:tokens": "node scripts/check-tokens.mjs",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"test": "vitest run",
+		"gallery": "vite --config vite.config.gallery.ts",
 		"preview": "node scripts/preview.mjs"
 	},
 	"peerDependencies": {
@@ -36,6 +37,7 @@
 		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.7",
 		"typescript": "^6.0.3",
+		"vite": "^8.3.5",
 		"vitest": "^4.1.12"
 	}
 }

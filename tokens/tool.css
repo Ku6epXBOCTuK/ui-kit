@@ -19,6 +19,7 @@
 	--ui-fg-muted: #415546;
 	--ui-on-accent: #f2f0ee;
 	--ui-on-danger: #f2f0ee;
+	--ui-on-intent: #1c211d;
 
 	--ui-line: #9dae9f;
 	--ui-line-strong: #566e5c;
@@ -35,6 +36,7 @@
 	--ui-danger: #d23a1e;
 	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 12%, var(--ui-panel));
 	--ui-info: #c430ad;
+	--ui-info-surface: color-mix(in oklch, var(--ui-info) 12%, var(--ui-panel));
 	--ui-focus: var(--ui-accent);
 
 	--ui-r-chip: 0px;
@@ -112,6 +114,7 @@
 	--ui-danger: #e2553a;
 	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 18%, var(--ui-panel));
 	--ui-info: #cb58b3;
+	--ui-info-surface: color-mix(in oklch, var(--ui-info) 18%, var(--ui-panel));
 
 	--ui-shadow-color: #586059;
 	--ui-shadow-pop: 0 6px 16px rgb(0 0 0 / 0.5);
