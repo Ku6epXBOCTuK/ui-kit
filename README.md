@@ -85,8 +85,12 @@ import Button from "@ku6epxboctuk/ui/ui/Button";
 | `Badge` | `tone` neutral/accent/success/warning/danger/info, `variant` soft/solid/outline, `size`, `dot` |
 | `Field` | `label`, `hint`, `error`, `required`; children receive the generated control id |
 | `TextInput` | `bind:value`, `size`, `invalid`; everything else is a native input attribute |
+| `Select` | `select` from `createSelect`, `trigger` and `option` snippets, `footer`, `isSelected`, `multiselect`, `searchable`, `variant` filter/field |
+| `TagInput` | `value` and `onchange` (not bindable, chips are a list), `suggestions`, `counts`, `onunknown`, `removeIcon` |
 
 They extend the matching `HTMLButtonAttributes` / `HTMLInputAttributes`, so `disabled`, `type`, `name`, `aria-*` and event handlers pass straight through.
+
+`Select` cannot style the trigger for you, because the trigger is your snippet. It publishes class hooks instead: `ui-select-trigger`, `ui-select-trigger-label`, `ui-select-trigger-caret`, `ui-select-trigger-meta` for the trigger, and `ui-select-option-mark`, `ui-select-option-label`, `ui-select-option-count` for the options. `TagInput` builds its trigger from those hooks.
 
 ## Scripts
 

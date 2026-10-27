@@ -3,13 +3,41 @@
 	import Button from "../src/ui/Button.svelte";
 	import Field from "../src/ui/Field.svelte";
 	import IconButton from "../src/ui/IconButton.svelte";
+	import Select from "../src/ui/Select.svelte";
+	import TagInput from "../src/ui/TagInput.svelte";
 	import TextInput from "../src/ui/TextInput.svelte";
+	import { createSelect } from "../src/headless/select.svelte.ts";
 
 	const tones = ["neutral", "accent", "success", "warning", "danger", "info"] as const;
 	const variants = ["soft", "solid", "outline"] as const;
+	const statuses = ["backlog", "open", "in-progress", "blocked", "done", "cancelled"];
 
 	let name = $state("");
 	let email = $state("not-an-email");
+
+	let single = $state<string | null>("open");
+	const one = createSelect<string>({
+		items: () => statuses,
+		getLabel: (status) => status,
+		onPick: (status) => {
+			single = status;
+		},
+	});
+
+	let picked = $state<string[]>(["open"]);
+	const multi = createSelect<string>({
+		items: () => statuses,
+		getLabel: (status) => status,
+		closeOnPick: false,
+		onPick: (status) => {
+			picked = picked.includes(status)
+				? picked.filter((item) => item !== status)
+				: [...picked, status];
+		},
+	});
+
+	let tags = $state(["bug", "ui"]);
+	const tagSuggestions = ["bug", "ui", "docs", "perf", "a11y", "select", "modal"];
 </script>
 
 {#snippet plus()}
@@ -22,6 +50,52 @@
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
 		<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" />
 	</svg>
+{/snippet}
+
+{#snippet caret()}
+	<span class="ui-select-trigger-caret" aria-hidden="true">▾</span>
+{/snippet}
+
+{#snippet singleTrigger()}
+	<button
+		type="button"
+		class="ui-select-trigger"
+		aria-expanded={one.open}
+		aria-label="Status"
+		onclick={() => one.toggle()}
+	>
+		<span class="ui-select-trigger-label">{single ?? "Pick a status"}</span>
+		{@render caret()}
+	</button>
+{/snippet}
+
+{#snippet multiTrigger()}
+	<button
+		type="button"
+		class="ui-select-trigger"
+		aria-expanded={multi.open}
+		aria-label="Status filter"
+		onclick={() => multi.toggle()}
+	>
+		<span class="ui-select-trigger-label">Status</span>
+		<span class="ui-select-trigger-meta">{picked.length}</span>
+		{@render caret()}
+	</button>
+{/snippet}
+
+{#snippet plainOption(status: string)}
+	<span class="ui-select-option-label">{status}</span>
+{/snippet}
+
+{#snippet markOption(status: string)}
+	<span class="ui-select-option-mark" aria-hidden="true">
+		{#if picked.includes(status)}✓{/if}
+	</span>
+	<span class="ui-select-option-label">{status}</span>
+{/snippet}
+
+{#snippet clearFooter()}
+	<button type="button" onclick={() => (picked = [])}>Clear all</button>
 {/snippet}
 
 <div class="row">
@@ -82,3 +156,55 @@
 		{/snippet}
 	</Field>
 </div>
+
+<div class="row">
+	<span class="row-label">select / single, searchable</span>
+	<div class="block">
+		<Select
+			select={one}
+			getKey={(status) => status}
+			trigger={singleTrigger}
+			option={plainOption}
+			searchable
+			searchPlaceholder="Filter statuses"
+			listLabel="Status"
+			isSelected={(status) => status === single}
+			variant="field"
+		/>
+	</div>
+</div>
+
+<div class="row">
+	<span class="row-label">select / multiselect, filter</span>
+	<Select
+		select={multi}
+		getKey={(status) => status}
+		trigger={multiTrigger}
+		option={markOption}
+		footer={clearFooter}
+		listLabel="Statuses"
+		multiselect
+		isSelected={(status) => picked.includes(status)}
+	/>
+</div>
+
+<div class="row">
+	<span class="row-label">tag input</span>
+	<div class="block">
+		<TagInput
+			value={tags}
+			onchange={(next) => (tags = next)}
+			suggestions={tagSuggestions}
+			ariaLabel="Tags"
+		/>
+	</div>
+</div>
+
+<style>
+	.block {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: 100%;
+	}
+</style>
