@@ -1,5 +1,5 @@
 {
-	"name": "@ku6epxboctuk/ui",
+	"name": "@ku6epxboctuk/ui-kit",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
@@ -8,7 +8,7 @@
 		"./tokens.css": "./tokens.css",
 		"./kawaii.css": "./tokens/kawaii.css",
 		"./headless/*": "./src/headless/*.svelte.ts",
-		"./ui/*": "./src/ui/*.svelte",
+		"./components/*": "./src/components/*.svelte",
 		"./tokens/*": "./tokens/*"
 	},
 	"files": [

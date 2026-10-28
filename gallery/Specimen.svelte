@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Badge from "../src/ui/Badge.svelte";
-	import Button from "../src/ui/Button.svelte";
-	import Field from "../src/ui/Field.svelte";
-	import IconButton from "../src/ui/IconButton.svelte";
-	import Modal from "../src/ui/Modal.svelte";
-	import Select from "../src/ui/Select.svelte";
-	import TagInput from "../src/ui/TagInput.svelte";
-	import TextInput from "../src/ui/TextInput.svelte";
+	import Badge from "../src/components/Badge.svelte";
+	import Button from "../src/components/Button.svelte";
+	import Field from "../src/components/Field.svelte";
+	import IconButton from "../src/components/IconButton.svelte";
+	import Modal from "../src/components/Modal.svelte";
+	import Select from "../src/components/Select.svelte";
+	import TagInput from "../src/components/TagInput.svelte";
+	import TextInput from "../src/components/TextInput.svelte";
 	import { createSelect } from "../src/headless/select.svelte.ts";
 
 	const tones = [

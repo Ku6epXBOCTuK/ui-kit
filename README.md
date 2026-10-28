@@ -7,12 +7,12 @@ Status: token layer is done. Headless and component layers are being built.
 
 ## Layers
 
-| Import                        | What it is                                                   | CSS         |
-| ----------------------------- | ------------------------------------------------------------ | ----------- |
-| `@ku6epxboctuk/ui/tokens.css` | the token contract plus the `tool` theme, light and dark     | yes         |
-| `@ku6epxboctuk/ui/kawaii.css` | the second theme preset, light and dark                      | yes         |
-| `src/headless/*`              | `.svelte.ts` state machines, no styles, no markup            | none        |
-| `src/ui/*`                    | Svelte components built on the headless layer and the tokens | own, scoped |
+| Import                            | What it is                                                   | CSS         |
+| --------------------------------- | ------------------------------------------------------------ | ----------- |
+| `@ku6epxboctuk/ui-kit/tokens.css` | the token contract plus the `tool` theme, light and dark     | yes         |
+| `@ku6epxboctuk/ui-kit/kawaii.css` | the second theme preset, light and dark                      | yes         |
+| `src/headless/*`                  | `.svelte.ts` state machines, no styles, no markup            | none        |
+| `src/components/*`                | Svelte components built on the headless layer and the tokens | own, scoped |
 
 The tokens are the only way a component learns how it should look. A component
 never hardcodes a colour, size or duration, and never checks which theme is
@@ -52,8 +52,8 @@ a PostCSS plugin. `kawaii` is written directly in `oklch()`.
 ## Using it
 
 ```css
-@import "@ku6epxboctuk/ui/tokens.css";
-@import "@ku6epxboctuk/ui/kawaii.css";
+@import "@ku6epxboctuk/ui-kit/tokens.css";
+@import "@ku6epxboctuk/ui-kit/kawaii.css";
 ```
 
 ```html
@@ -77,8 +77,8 @@ The state machines are `.svelte.ts`, so they use runes and stay reactive when a
 component reads them.
 
 ```ts
-import { createSelect } from "@ku6epxboctuk/ui/headless/select";
-import { createTagInput } from "@ku6epxboctuk/ui/headless/tags";
+import { createSelect } from "@ku6epxboctuk/ui-kit/headless/select";
+import { createTagInput } from "@ku6epxboctuk/ui-kit/headless/tags";
 ```
 
 `createSelect<T>(config)` owns `open`, `query`, `filtered`, `active` and
@@ -105,12 +105,12 @@ Two things to know:
 
 ## Styled layer
 
-`src/ui` holds the components. Each one reads `--ui-*` tokens only and exposes
-`class`, `data-ui` and `data-*` attributes as the escape hatches. None of them
-import an icon or hold a user-facing string.
+`src/components` holds the components. Each one reads `--ui-*` tokens only and
+exposes `class`, `data-ui` and `data-*` attributes as the escape hatches. None
+of them import an icon or hold a user-facing string.
 
 ```svelte
-import Button from "@ku6epxboctuk/ui/ui/Button";
+import Button from "@ku6epxboctuk/ui-kit/components/Button";
 ```
 
 | Component    | Props that matter                                                                                                                          |
