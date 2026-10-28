@@ -172,5 +172,10 @@ An application migrates in three moves:
    aliases as their last consumer goes.
 3. Delete `compat.css` once it is only aliases nobody reads.
 
-`xboct-log` is the first target. Its 73 components keep working through the
-alias file while the interactive ones are rebuilt on the headless layer.
+`xboct-log` is the first target. It is migrated now: the alias file is gone, the
+app reads the `tool` tokens directly, and `pnpm check:tokens` guards the names.
+
+## Census
+
+Which components the four projects actually share, how often each is used, and
+what belongs in the kit next: [docs/census.md](./docs/census.md).
