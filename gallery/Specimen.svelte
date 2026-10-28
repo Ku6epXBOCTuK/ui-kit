@@ -3,6 +3,7 @@
 	import Button from "../src/ui/Button.svelte";
 	import Field from "../src/ui/Field.svelte";
 	import IconButton from "../src/ui/IconButton.svelte";
+	import Modal from "../src/ui/Modal.svelte";
 	import Select from "../src/ui/Select.svelte";
 	import TagInput from "../src/ui/TagInput.svelte";
 	import TextInput from "../src/ui/TextInput.svelte";
@@ -28,6 +29,7 @@
 
 	let name = $state("");
 	let email = $state("not-an-email");
+	let modalOpen = $state(false);
 
 	let single = $state<string | null>("open");
 	const one = createSelect<string>({
@@ -220,6 +222,35 @@
 		multiselect
 		isSelected={(status) => picked.includes(status)}
 	/>
+</div>
+
+<div class="row">
+	<span class="row-label">modal</span>
+	<div class="block">
+		<Button onclick={() => (modalOpen = true)}>Open dialog</Button>
+		<Modal
+			open={modalOpen}
+			title="Delete task"
+			size="wide"
+			dismissable
+			onclose={() => (modalOpen = false)}
+		>
+			<p>This task and its comments will be gone.</p>
+			<Field label="Reason" hint="Shown in the activity feed.">
+				{#snippet children(id)}
+					<TextInput {id} placeholder="Optional" />
+				{/snippet}
+			</Field>
+			<div
+				style="display:flex; gap:8px; justify-content:flex-end; margin-top:16px;"
+			>
+				<Button onclick={() => (modalOpen = false)}>Cancel</Button>
+				<Button variant="danger" onclick={() => (modalOpen = false)}
+					>Delete</Button
+				>
+			</div>
+		</Modal>
+	</div>
 </div>
 
 <div class="row">

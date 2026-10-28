@@ -10,6 +10,7 @@
 		variant?: Variant;
 		size?: Size;
 		active?: boolean;
+		expanded?: boolean;
 		children: Snippet;
 	}
 
@@ -18,6 +19,7 @@
 		variant = "ghost",
 		size = "md",
 		active = false,
+		expanded,
 		disabled = false,
 		type = "button",
 		class: className = "",
@@ -32,6 +34,7 @@
 	{disabled}
 	aria-label={label}
 	aria-pressed={active || undefined}
+	aria-expanded={expanded}
 	data-ui="icon-button"
 	data-variant={variant}
 	data-size={size}
@@ -55,7 +58,7 @@
 		background: transparent;
 		color: var(--ui-fg-secondary);
 		font-family: var(--ui-font);
-		font-size: var(--ui-fs-md);
+		font-size: var(--ui-fs-lg);
 		line-height: 1;
 		cursor: pointer;
 		transition:
@@ -72,7 +75,7 @@
 	.ui-icon-button[data-size="sm"] {
 		width: var(--ui-control-h-sm);
 		height: var(--ui-control-h-sm);
-		font-size: var(--ui-fs-sm);
+		font-size: var(--ui-fs-md);
 	}
 
 	.ui-icon-button[data-size="lg"] {

@@ -116,10 +116,11 @@ import Button from "@ku6epxboctuk/ui/ui/Button";
 | Component    | Props that matter                                                                                                                          |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `Button`     | `variant` primary/secondary/ghost/danger, `size` sm/md/lg, `icon` and `iconAfter` snippets, `loading`                                      |
-| `IconButton` | required `label` for `aria-label`, `variant` ghost/secondary/danger, `size`, `active`, icon as children                                    |
+| `IconButton` | required `label` for `aria-label`, `variant` ghost/secondary/danger, `size`, `active`, `expanded`, icon as children                        |
 | `Badge`      | `tone` neutral/accent/success/warning/danger/info, `variant` soft/solid/outline, `size`, `dot`                                             |
 | `Field`      | `label`, `hint`, `error`, `required`; children receive the generated control id                                                            |
 | `TextInput`  | `bind:value`, `size`, `invalid`; everything else is a native input attribute                                                               |
+| `Modal`      | `open`, `title`, `label` for `aria-label`, `size` default/wide/full, `dismissable`, `onclose`, `closeIcon`                                 |
 | `Select`     | `select` from `createSelect`, `trigger` and `option` snippets, `footer`, `isSelected`, `multiselect`, `searchable`, `variant` filter/field |
 | `TagInput`   | `value` and `onchange` (not bindable, chips are a list), `suggestions`, `counts`, `onunknown`, `removeIcon`                                |
 
