@@ -1,9 +1,25 @@
 {
 	"name": "@ku6epxboctuk/ui-kit",
 	"version": "0.0.0",
-	"private": true,
 	"type": "module",
 	"description": "Design tokens and Svelte 5 components shared by my projects",
+	"author": "Ku6epXBOCTuK <Ku6epXBOCTuK@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ku6epXBOCTuK/ui-kit.git"
+	},
+	"homepage": "https://github.com/Ku6epXBOCTuK/ui-kit#readme",
+	"bugs": {
+		"url": "https://github.com/Ku6epXBOCTuK/ui-kit/issues"
+	},
+	"keywords": [
+		"design-tokens",
+		"svelte",
+		"svelte5",
+		"ui",
+		"components"
+	],
 	"exports": {
 		"./tokens.css": "./tokens.css",
 		"./kawaii.css": "./tokens/kawaii.css",
@@ -14,8 +30,17 @@
 	"files": [
 		"tokens.css",
 		"tokens/",
-		"src/"
+		"!tokens/tool.src.css",
+		"src/",
+		"!src/**/*.spec.*"
 	],
+	"sideEffects": [
+		"*.css"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"packageManager": "pnpm@12.15.0",
 	"scripts": {
 		"build:themes": "node scripts/build-themes.mjs",
 		"check:tokens": "node scripts/check-tokens.mjs",
@@ -23,7 +48,8 @@
 		"format": "prettier --write . --log-level=warn",
 		"test": "vitest run",
 		"gallery": "vite --config vite.config.gallery.ts",
-		"preview": "node scripts/preview.mjs"
+		"preview": "node scripts/preview.mjs",
+		"prepublishOnly": "pnpm check && pnpm test && pnpm build:themes"
 	},
 	"peerDependencies": {
 		"svelte": "^5.57.0"
@@ -36,14 +62,12 @@
 		"@panmdaa/colors": "^0.4.2",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"postcss": "^8.5.26",
+		"prettier": "^3.9.10",
+		"prettier-plugin-svelte": "^4.1.1",
 		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.7",
 		"typescript": "^6.0.3",
 		"vite": "^8.3.5",
 		"vitest": "^4.1.12"
-	},
-	"dependencies": {
-		"prettier": "^3.9.10",
-		"prettier-plugin-svelte": "^4.1.1"
 	}
 }

@@ -179,3 +179,7 @@ app reads the `tool` tokens directly, and `pnpm check:tokens` guards the names.
 
 Which components the four projects actually share, how often each is used, and
 what belongs in the kit next: [docs/census.md](./docs/census.md).
+
+## License
+
+[MIT](./LICENSE) © Ku6epXBOCTuK
