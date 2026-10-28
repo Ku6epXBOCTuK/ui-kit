@@ -172,6 +172,8 @@
 		<Badge tone="danger" {variant}>{variant}</Badge>
 	{/each}
 	<Badge variant="outline" size="md">medium</Badge>
+	<Badge variant="outline" size="xs">x-small</Badge>
+	<Badge color="#7c4ddb" size="xs">custom violet</Badge>
 </div>
 
 <div class="row">

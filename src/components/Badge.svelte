@@ -3,13 +3,14 @@
 
 	type Tone = "neutral" | "accent" | "success" | "warning" | "danger" | "info";
 	type Variant = "soft" | "solid" | "outline";
-	type Size = "sm" | "md";
+	type Size = "xs" | "sm" | "md";
 
 	interface Props {
 		tone?: Tone;
 		variant?: Variant;
 		size?: Size;
 		dot?: boolean;
+		color?: string;
 		children?: Snippet;
 		class?: string;
 	}
@@ -19,6 +20,7 @@
 		variant = "soft",
 		size = "sm",
 		dot = false,
+		color,
 		children,
 		class: className = "",
 	}: Props = $props();
@@ -30,6 +32,9 @@
 	data-variant={variant}
 	data-size={size}
 	class="ui-badge {className}"
+	style={color
+		? `--badge-tone: ${color}; --badge-surface: color-mix(in oklch, ${color} 16%, transparent);`
+		: undefined}
 >
 	{#if dot}<span class="ui-badge-dot" aria-hidden="true"></span>{/if}
 	{#if children}{@render children()}{/if}
@@ -52,6 +57,12 @@
 		letter-spacing: var(--ui-label-track);
 		text-transform: var(--ui-label-transform);
 		white-space: nowrap;
+	}
+
+	.ui-badge[data-size="xs"] {
+		height: auto;
+		padding: calc(var(--ui-space-1) / 2) var(--ui-space-2);
+		line-height: 1.4;
 	}
 
 	.ui-badge[data-size="md"] {
