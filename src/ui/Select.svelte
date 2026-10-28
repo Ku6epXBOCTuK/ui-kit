@@ -59,7 +59,10 @@
 
 		const top = flip
 			? Math.max(margin, anchor.top - height - gap)
-			: Math.min(anchor.bottom + gap, Math.max(margin, window.innerHeight - height - margin));
+			: Math.min(
+					anchor.bottom + gap,
+					Math.max(margin, window.innerHeight - height - margin),
+				);
 		const left = Math.min(
 			Math.max(margin, anchor.left),
 			Math.max(margin, window.innerWidth - width - margin),

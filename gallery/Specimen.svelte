@@ -8,9 +8,23 @@
 	import TextInput from "../src/ui/TextInput.svelte";
 	import { createSelect } from "../src/headless/select.svelte.ts";
 
-	const tones = ["neutral", "accent", "success", "warning", "danger", "info"] as const;
+	const tones = [
+		"neutral",
+		"accent",
+		"success",
+		"warning",
+		"danger",
+		"info",
+	] as const;
 	const variants = ["soft", "solid", "outline"] as const;
-	const statuses = ["backlog", "open", "in-progress", "blocked", "done", "cancelled"];
+	const statuses = [
+		"backlog",
+		"open",
+		"in-progress",
+		"blocked",
+		"done",
+		"cancelled",
+	];
 
 	let name = $state("");
 	let email = $state("not-an-email");
@@ -37,17 +51,37 @@
 	});
 
 	let tags = $state(["bug", "ui"]);
-	const tagSuggestions = ["bug", "ui", "docs", "perf", "a11y", "select", "modal"];
+	const tagSuggestions = [
+		"bug",
+		"ui",
+		"docs",
+		"perf",
+		"a11y",
+		"select",
+		"modal",
+	];
 </script>
 
 {#snippet plus()}
-	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+	>
 		<path d="M12 5v14M5 12h14" />
 	</svg>
 {/snippet}
 
 {#snippet trash()}
-	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+	>
 		<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" />
 	</svg>
 {/snippet}

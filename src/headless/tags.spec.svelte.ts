@@ -3,7 +3,10 @@ import { createTagInput } from "./tags.svelte.ts";
 
 const pool = ["bug", "ui", "docs"];
 
-function make(initial: string[] = [], onUnknown?: (tag: string) => Promise<unknown> | void) {
+function make(
+	initial: string[] = [],
+	onUnknown?: (tag: string) => Promise<unknown> | void,
+) {
 	let tags = [...initial];
 	const onChange = vi.fn((next: string[]) => {
 		tags = next;

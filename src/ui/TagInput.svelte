@@ -112,7 +112,9 @@
 	multiselect
 	listLabel={ariaLabel}
 	{listId}
-	emptyLabel={tags.text.trim() === "" ? "No tags yet" : `Add "${tags.text.trim()}"`}
+	emptyLabel={tags.text.trim() === ""
+		? "No tags yet"
+		: `Add "${tags.text.trim()}"`}
 	class={className}
 />
 

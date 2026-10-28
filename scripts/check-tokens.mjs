@@ -19,7 +19,8 @@ function blocks(css, theme) {
 		const own =
 			theme === "kawaii"
 				? selector.includes('data-ui-theme="kawaii"')
-				: !selector.includes('data-ui-theme="kawaii"') && selector.includes(":root");
+				: !selector.includes('data-ui-theme="kawaii"') &&
+					selector.includes(":root");
 		if (!own) return;
 
 		const dark = selector.includes('data-ui-mode="dark"');
@@ -33,11 +34,15 @@ function blocks(css, theme) {
 }
 
 function diff(actual, expected, label) {
-	return [...expected].filter((name) => !actual.has(name)).map((name) => `${label}: missing ${name}`);
+	return [...expected]
+		.filter((name) => !actual.has(name))
+		.map((name) => `${label}: missing ${name}`);
 }
 
 async function sources(dir) {
-	const entries = await readdir(new URL(`../${dir}`, import.meta.url), { withFileTypes: true });
+	const entries = await readdir(new URL(`../${dir}`, import.meta.url), {
+		withFileTypes: true,
+	});
 	const found = [];
 	for (const entry of entries) {
 		const path = `${dir}/${entry.name}`;

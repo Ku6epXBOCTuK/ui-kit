@@ -19,7 +19,9 @@ const types = {
 };
 
 const server = createServer(async (request, response) => {
-	const path = normalize(decodeURIComponent(new URL(request.url, "http://x").pathname));
+	const path = normalize(
+		decodeURIComponent(new URL(request.url, "http://x").pathname),
+	);
 	const resolved = join(root, path === "/" ? "preview/index.html" : path);
 
 	if (!resolved.startsWith(root)) {
@@ -31,11 +33,15 @@ const server = createServer(async (request, response) => {
 		const info = await stat(resolved);
 		const file = info.isDirectory() ? join(resolved, "index.html") : resolved;
 		if (!(await stat(file)).isFile()) throw new Error("not a file");
-		response.writeHead(200, { "content-type": types[extname(file)] ?? "application/octet-stream" });
+		response.writeHead(200, {
+			"content-type": types[extname(file)] ?? "application/octet-stream",
+		});
 		createReadStream(file).pipe(response);
 	} catch {
 		response.writeHead(404).end("Not found");
 	}
 });
 
-server.listen(port, () => console.log(`preview: http://localhost:${port}/preview/`));
+server.listen(port, () =>
+	console.log(`preview: http://localhost:${port}/preview/`),
+);

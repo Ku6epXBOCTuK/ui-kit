@@ -28,13 +28,29 @@
 	--ui-accent: #00834b;
 	--ui-accent-hover: #009758;
 	--ui-accent-ink: #004827;
-	--ui-accent-surface: color-mix(in oklch, var(--ui-accent) 12%, var(--ui-panel));
+	--ui-accent-surface: color-mix(
+		in oklch,
+		var(--ui-accent) 12%,
+		var(--ui-panel)
+	);
 	--ui-success: #008350;
-	--ui-success-surface: color-mix(in oklch, var(--ui-success) 14%, var(--ui-panel));
+	--ui-success-surface: color-mix(
+		in oklch,
+		var(--ui-success) 14%,
+		var(--ui-panel)
+	);
 	--ui-warning: #976a00;
-	--ui-warning-surface: color-mix(in oklch, var(--ui-warning) 16%, var(--ui-panel));
+	--ui-warning-surface: color-mix(
+		in oklch,
+		var(--ui-warning) 16%,
+		var(--ui-panel)
+	);
 	--ui-danger: #d23a1e;
-	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 12%, var(--ui-panel));
+	--ui-danger-surface: color-mix(
+		in oklch,
+		var(--ui-danger) 12%,
+		var(--ui-panel)
+	);
 	--ui-info: #c430ad;
 	--ui-info-surface: color-mix(in oklch, var(--ui-info) 12%, var(--ui-panel));
 	--ui-focus: var(--ui-accent);
@@ -106,13 +122,29 @@
 	--ui-accent: #009a5a;
 	--ui-accent-hover: #00a661;
 	--ui-accent-ink: #00e98a;
-	--ui-accent-surface: color-mix(in oklch, var(--ui-accent) 18%, var(--ui-panel));
+	--ui-accent-surface: color-mix(
+		in oklch,
+		var(--ui-accent) 18%,
+		var(--ui-panel)
+	);
 	--ui-success: #00975e;
-	--ui-success-surface: color-mix(in oklch, var(--ui-success) 20%, var(--ui-panel));
+	--ui-success-surface: color-mix(
+		in oklch,
+		var(--ui-success) 20%,
+		var(--ui-panel)
+	);
 	--ui-warning: #ae7a00;
-	--ui-warning-surface: color-mix(in oklch, var(--ui-warning) 20%, var(--ui-panel));
+	--ui-warning-surface: color-mix(
+		in oklch,
+		var(--ui-warning) 20%,
+		var(--ui-panel)
+	);
 	--ui-danger: #e2553a;
-	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 18%, var(--ui-panel));
+	--ui-danger-surface: color-mix(
+		in oklch,
+		var(--ui-danger) 18%,
+		var(--ui-panel)
+	);
 	--ui-info: #cb58b3;
 	--ui-info-surface: color-mix(in oklch, var(--ui-info) 18%, var(--ui-panel));
 

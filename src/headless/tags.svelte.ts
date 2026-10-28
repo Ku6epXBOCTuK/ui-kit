@@ -33,14 +33,20 @@ export function createTagInput(config: TagInputConfig) {
 	function add(candidates: string[]) {
 		const fresh = candidates
 			.map(normalize)
-			.filter((tag, index, all) => tag !== "" && !value.includes(tag) && all.indexOf(tag) === index);
+			.filter(
+				(tag, index, all) =>
+					tag !== "" && !value.includes(tag) && all.indexOf(tag) === index,
+			);
 		if (fresh.length > 0) config.onChange([...value, ...fresh]);
 		text = "";
 		select.setQuery("");
 	}
 
 	async function commit() {
-		const candidates = text.split(SEPARATORS).map(normalize).filter((tag) => tag !== "");
+		const candidates = text
+			.split(SEPARATORS)
+			.map(normalize)
+			.filter((tag) => tag !== "");
 		text = "";
 		select.setQuery("");
 		if (config.onUnknown !== undefined) {

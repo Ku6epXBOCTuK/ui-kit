@@ -25,11 +25,16 @@
 	const controlId = $derived(id ?? fallbackId);
 </script>
 
-<div class="ui-field {className}" data-ui="field" data-invalid={error ? true : undefined}>
+<div
+	class="ui-field {className}"
+	data-ui="field"
+	data-invalid={error ? true : undefined}
+>
 	{#if label}
 		<label class="ui-field-label" for={controlId}>
 			{label}
-			{#if required}<span class="ui-field-required" aria-hidden="true">*</span>{/if}
+			{#if required}<span class="ui-field-required" aria-hidden="true">*</span
+				>{/if}
 		</label>
 	{/if}
 	{@render children(controlId)}

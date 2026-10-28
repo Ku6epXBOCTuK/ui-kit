@@ -18,7 +18,8 @@ function matches<T>(
 	getKeywords?: (item: T) => string,
 ): boolean {
 	if (needle === "") return true;
-	const haystack = `${getLabel(item)} ${getKeywords?.(item) ?? ""}`.toLowerCase();
+	const haystack =
+		`${getLabel(item)} ${getKeywords?.(item) ?? ""}`.toLowerCase();
 	return haystack.includes(needle);
 }
 
@@ -45,7 +46,9 @@ export function createSelect<T>(config: SelectConfig<T>) {
 	);
 
 	const active = $derived(
-		filtered.length === 0 ? null : (filtered[clamp(activeIndex, filtered.length)] ?? null),
+		filtered.length === 0
+			? null
+			: (filtered[clamp(activeIndex, filtered.length)] ?? null),
 	);
 
 	function show() {
@@ -83,7 +86,7 @@ export function createSelect<T>(config: SelectConfig<T>) {
 		}
 		const next = activeIndex + delta;
 		activeIndex =
-			config.wrap ?? true
+			(config.wrap ?? true)
 				? clamp(next, filtered.length)
 				: Math.min(Math.max(next, 0), filtered.length - 1);
 	}

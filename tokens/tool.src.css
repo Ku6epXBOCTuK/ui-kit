@@ -30,13 +30,29 @@
 	--ui-accent: hct(from var(--ui-brand-seed) h 80 48);
 	--ui-accent-hover: hct(from var(--ui-brand-seed) h 65 55);
 	--ui-accent-ink: hct(from var(--ui-brand-seed) h 85 26);
-	--ui-accent-surface: color-mix(in oklch, var(--ui-accent) 12%, var(--ui-panel));
+	--ui-accent-surface: color-mix(
+		in oklch,
+		var(--ui-accent) 12%,
+		var(--ui-panel)
+	);
 	--ui-success: hct(160 80 48);
-	--ui-success-surface: color-mix(in oklch, var(--ui-success) 14%, var(--ui-panel));
+	--ui-success-surface: color-mix(
+		in oklch,
+		var(--ui-success) 14%,
+		var(--ui-panel)
+	);
 	--ui-warning: hct(80 80 48);
-	--ui-warning-surface: color-mix(in oklch, var(--ui-warning) 16%, var(--ui-panel));
+	--ui-warning-surface: color-mix(
+		in oklch,
+		var(--ui-warning) 16%,
+		var(--ui-panel)
+	);
 	--ui-danger: hct(30 80 48);
-	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 12%, var(--ui-panel));
+	--ui-danger-surface: color-mix(
+		in oklch,
+		var(--ui-danger) 12%,
+		var(--ui-panel)
+	);
 	--ui-info: hct(340 80 48);
 	--ui-info-surface: color-mix(in oklch, var(--ui-info) 12%, var(--ui-panel));
 	--ui-focus: var(--ui-accent);
@@ -108,13 +124,29 @@
 	--ui-accent: hct(from var(--ui-brand-seed) h 60 56);
 	--ui-accent-hover: hct(from var(--ui-brand-seed) h 65 60);
 	--ui-accent-ink: hct(from var(--ui-brand-seed) h 85 82);
-	--ui-accent-surface: color-mix(in oklch, var(--ui-accent) 18%, var(--ui-panel));
+	--ui-accent-surface: color-mix(
+		in oklch,
+		var(--ui-accent) 18%,
+		var(--ui-panel)
+	);
 	--ui-success: hct(160 65 55);
-	--ui-success-surface: color-mix(in oklch, var(--ui-success) 20%, var(--ui-panel));
+	--ui-success-surface: color-mix(
+		in oklch,
+		var(--ui-success) 20%,
+		var(--ui-panel)
+	);
 	--ui-warning: hct(80 65 55);
-	--ui-warning-surface: color-mix(in oklch, var(--ui-warning) 20%, var(--ui-panel));
+	--ui-warning-surface: color-mix(
+		in oklch,
+		var(--ui-warning) 20%,
+		var(--ui-panel)
+	);
 	--ui-danger: hct(30 70 55);
-	--ui-danger-surface: color-mix(in oklch, var(--ui-danger) 18%, var(--ui-panel));
+	--ui-danger-surface: color-mix(
+		in oklch,
+		var(--ui-danger) 18%,
+		var(--ui-panel)
+	);
 	--ui-info: hct(340 65 55);
 	--ui-info-surface: color-mix(in oklch, var(--ui-info) 18%, var(--ui-panel));
 

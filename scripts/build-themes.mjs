@@ -18,7 +18,9 @@ const { css } = await postcss([postcssHct]).process(input, {
 
 const body = css.replace(/\/\*[\s\S]*?\*\//g, "");
 if (/\bhct\(/.test(body)) {
-	throw new Error("Unresolved hct() left in the output, check the authoring source");
+	throw new Error(
+		"Unresolved hct() left in the output, check the authoring source",
+	);
 }
 
 await writeFile(target, header + body.trim() + "\n", "utf8");
