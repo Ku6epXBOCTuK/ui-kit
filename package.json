@@ -8,7 +8,8 @@
 		"./tokens.css": "./tokens.css",
 		"./kawaii.css": "./tokens/kawaii.css",
 		"./headless/*": "./src/headless/*.svelte.ts",
-		"./ui/*": "./src/ui/*.svelte"
+		"./ui/*": "./src/ui/*.svelte",
+		"./tokens/*": "./tokens/*"
 	},
 	"files": [
 		"tokens.css",
