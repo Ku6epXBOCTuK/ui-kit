@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Badge from "../src/components/Badge.svelte";
 	import Button from "../src/components/Button.svelte";
+	import Chip from "../src/components/Chip.svelte";
 	import ControlRow from "../src/components/ControlRow.svelte";
 	import Field from "../src/components/Field.svelte";
 	import IconButton from "../src/components/IconButton.svelte";
@@ -64,6 +65,8 @@
 	});
 
 	let tags = $state(["bug", "ui"]);
+	let openedChip = $state("none");
+	let chipTags = $state(["ui", "ux"]);
 	const tagSuggestions = [
 		"bug",
 		"ui",
@@ -198,6 +201,23 @@
 	<Badge variant="outline" size="md">medium</Badge>
 	<Badge variant="outline" size="xs">x-small</Badge>
 	<Badge color="#7c4ddb" size="xs">custom violet</Badge>
+</div>
+
+<div class="row">
+	<span class="row-label">chip / opened: {openedChip}</span>
+	<Chip>LOG-166</Chip>
+	<Chip onopen={() => (openedChip = "LOG-43")} openLabel="Open LOG-43"
+		>LOG-43</Chip
+	>
+	{#each chipTags as tag (tag)}
+		<Chip
+			removeLabel={`Remove ${tag}`}
+			onremove={() => (chipTags = chipTags.filter((item) => item !== tag))}
+		>
+			{tag}
+		</Chip>
+	{/each}
+	<Chip unavailable hint="Task is gone">LOG-9</Chip>
 </div>
 
 <div class="row">

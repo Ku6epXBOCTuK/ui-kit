@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Snippet } from "svelte";
 	import { createTagInput } from "../headless/tags.svelte.ts";
+	import Chip from "./Chip.svelte";
 	import Select from "./Select.svelte";
 
 	interface Props {
@@ -12,7 +12,6 @@
 		placeholder?: string;
 		ariaLabel?: string;
 		variant?: "filter" | "field";
-		removeIcon?: Snippet<[string]>;
 		class?: string;
 	}
 
@@ -25,7 +24,6 @@
 		placeholder = "Add tags",
 		ariaLabel = "Tags",
 		variant = "field",
-		removeIcon,
 		class: className = "",
 	}: Props = $props();
 
@@ -59,24 +57,15 @@
 		}}
 	>
 		{#each value as tag (tag)}
-			<span class="ui-tag-chip" data-ui="tag">
+			<Chip
+				removeLabel={`Remove ${tag}`}
+				onremove={() => {
+					tags.remove(tag);
+					focusInput();
+				}}
+			>
 				{tag}
-				<button
-					type="button"
-					class="ui-tag-chip-remove"
-					aria-label={`Remove ${tag}`}
-					onclick={() => {
-						tags.remove(tag);
-						focusInput();
-					}}
-				>
-					{#if removeIcon}
-						{@render removeIcon(tag)}
-					{:else}
-						<span aria-hidden="true">&times;</span>
-					{/if}
-				</button>
-			</span>
+			</Chip>
 		{/each}
 		<input
 			class="ui-tag-input"
@@ -126,49 +115,6 @@
 		gap: var(--ui-space-1) var(--ui-space-2);
 		padding: var(--ui-space-1) var(--ui-space-2);
 		cursor: text;
-	}
-
-	.ui-tag-chip {
-		display: inline-flex;
-		align-items: center;
-		gap: var(--ui-space-1);
-		height: var(--ui-control-h-sm);
-		padding: 0 var(--ui-space-1) 0 var(--ui-space-2);
-		border: var(--ui-line-w) solid var(--ui-line-strong);
-		border-radius: var(--ui-r-chip);
-		background: var(--ui-panel);
-		color: var(--ui-fg-secondary);
-		font-family: var(--ui-font);
-		font-size: var(--ui-fs-xs);
-		line-height: 1;
-	}
-
-	.ui-tag-chip-remove {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-		border: 0;
-		background: transparent;
-		color: var(--ui-fg-muted);
-		font-family: var(--ui-font);
-		font-size: var(--ui-fs-sm);
-		line-height: 1;
-		cursor: pointer;
-	}
-
-	.ui-tag-chip-remove:hover {
-		color: var(--ui-danger);
-	}
-
-	.ui-tag-chip-remove:focus-visible {
-		outline: var(--ui-focus-ring-w) solid var(--ui-focus);
-		outline-offset: 1px;
-	}
-
-	.ui-tag-chip-remove :global(svg) {
-		width: 0.75rem;
-		height: 0.75rem;
 	}
 
 	.ui-tag-input {
