@@ -1,6 +1,6 @@
 {
 	"name": "@ku6epxboctuk/ui-kit",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"type": "module",
 	"description": "Design tokens and Svelte 5 components shared by my projects",
 	"author": "Ku6epXBOCTuK <Ku6epXBOCTuK@gmail.com>",
