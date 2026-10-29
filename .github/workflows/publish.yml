@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   publish:
@@ -60,8 +61,6 @@ jobs:
       - name: Publish to npm
         if: steps.published.outputs.skip != 'true'
         run: pnpm publish --no-git-checks --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Get Changelog
         id: version_info
