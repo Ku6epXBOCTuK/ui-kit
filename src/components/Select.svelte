@@ -2,6 +2,8 @@
 	import type { Select } from "../headless/select.svelte.ts";
 	import type { Snippet } from "svelte";
 
+	type Size = "sm" | "md" | "lg";
+
 	interface Props {
 		select: Select<T>;
 		getKey: (item: T) => string | number;
@@ -17,6 +19,7 @@
 		listId?: string;
 		multiselect?: boolean;
 		variant?: "filter" | "field";
+		size?: Size;
 		class?: string;
 	}
 
@@ -35,6 +38,7 @@
 		listId,
 		multiselect = false,
 		variant = "filter",
+		size = "md",
 		class: className = "",
 	}: Props = $props();
 
@@ -138,6 +142,7 @@
 	class="ui-select {className}"
 	data-ui="select"
 	data-variant={variant}
+	data-size={size}
 	role="presentation"
 	bind:this={root}
 	onkeydown={handleKeydown}
@@ -208,7 +213,7 @@
 		gap: var(--ui-space-2);
 		box-sizing: border-box;
 		width: 100%;
-		min-height: var(--ui-control-h-md);
+		height: var(--ui-control-h-md);
 		padding: 0 var(--ui-space-3);
 		border: var(--ui-line-w) solid var(--ui-line-strong);
 		border-radius: var(--ui-r-control);
@@ -216,8 +221,19 @@
 		color: var(--ui-fg-secondary);
 		font-family: var(--ui-font);
 		font-size: var(--ui-fs-md);
+		line-height: 1;
 		text-align: left;
 		cursor: pointer;
+	}
+
+	.ui-select[data-size="sm"] :global(.ui-select-trigger) {
+		height: var(--ui-control-h-sm);
+		font-size: var(--ui-fs-sm);
+	}
+
+	.ui-select[data-size="lg"] :global(.ui-select-trigger) {
+		height: var(--ui-control-h-lg);
+		font-size: var(--ui-fs-lg);
 	}
 
 	:global(.ui-select-trigger:hover:not(:disabled)) {
@@ -229,8 +245,8 @@
 	:global(.ui-select-trigger[aria-expanded="true"]) {
 		border-color: var(--ui-accent);
 		color: var(--ui-fg);
-		outline: 2px solid var(--ui-focus);
-		outline-offset: 2px;
+		outline: var(--ui-focus-ring-w) solid var(--ui-focus);
+		outline-offset: var(--ui-focus-ring-offset);
 	}
 
 	:global(.ui-select-trigger:disabled) {
@@ -273,7 +289,7 @@
 	}
 
 	.ui-select[data-variant="field"] :global(.ui-select-trigger) {
-		padding: var(--ui-space-2) var(--ui-space-3);
+		padding: 0 var(--ui-space-3);
 		border-color: var(--ui-line);
 		background: var(--ui-field);
 		color: var(--ui-fg);

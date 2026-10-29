@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Badge from "../src/components/Badge.svelte";
 	import Button from "../src/components/Button.svelte";
+	import ControlRow from "../src/components/ControlRow.svelte";
 	import Field from "../src/components/Field.svelte";
 	import IconButton from "../src/components/IconButton.svelte";
 	import Modal from "../src/components/Modal.svelte";
+	import ScrollArea from "../src/components/ScrollArea.svelte";
 	import Select from "../src/components/Select.svelte";
 	import TagInput from "../src/components/TagInput.svelte";
 	import TextInput from "../src/components/TextInput.svelte";
@@ -49,6 +51,15 @@
 			picked = picked.includes(status)
 				? picked.filter((item) => item !== status)
 				: [...picked, status];
+		},
+	});
+
+	let rowStatus = $state<string | null>("open");
+	const row = createSelect<string>({
+		items: () => statuses,
+		getLabel: (status) => status,
+		onPick: (status) => {
+			rowStatus = status;
 		},
 	});
 
@@ -115,6 +126,19 @@
 	>
 		<span class="ui-select-trigger-label">Status</span>
 		<span class="ui-select-trigger-meta">{picked.length}</span>
+		{@render caret()}
+	</button>
+{/snippet}
+
+{#snippet rowTrigger()}
+	<button
+		type="button"
+		class="ui-select-trigger"
+		aria-expanded={row.open}
+		aria-label="Close reason"
+		onclick={() => row.toggle()}
+	>
+		<span class="ui-select-trigger-label">{rowStatus ?? "Pick a reason"}</span>
 		{@render caret()}
 	</button>
 {/snippet}
@@ -227,6 +251,74 @@
 </div>
 
 <div class="row">
+	<span class="row-label">control row / shared height</span>
+	<div class="block">
+		<ControlRow>
+			<div class="grow">
+				<Select
+					select={row}
+					getKey={(status) => status}
+					trigger={rowTrigger}
+					option={plainOption}
+					variant="field"
+				/>
+			</div>
+			<Button>Close task</Button>
+			{#snippet end()}
+				<IconButton label="Delete">{@render trash()}</IconButton>
+			{/snippet}
+		</ControlRow>
+	</div>
+</div>
+
+<div class="row">
+	<span class="row-label">scroll area / focus room (tab into a ring)</span>
+	<div class="block">
+		<div class="scroll-frame">
+			<ScrollArea class="scroll-body">
+				<div class="scroll-stack">
+					<ControlRow>
+						<Button variant="primary">Top row</Button>
+						{#snippet end()}
+							<IconButton label="Add">{@render plus()}</IconButton>
+						{/snippet}
+					</ControlRow>
+					<ControlRow>
+						<Button>Second row</Button>
+						{#snippet end()}
+							<IconButton label="Add">{@render plus()}</IconButton>
+						{/snippet}
+					</ControlRow>
+					<ControlRow>
+						<Button>Third row</Button>
+						{#snippet end()}
+							<IconButton label="Add">{@render plus()}</IconButton>
+						{/snippet}
+					</ControlRow>
+					<ControlRow>
+						<Button>Bottom row</Button>
+						{#snippet end()}
+							<IconButton label="Delete">{@render trash()}</IconButton>
+						{/snippet}
+					</ControlRow>
+				</div>
+			</ScrollArea>
+		</div>
+		<div class="scroll-frame scroll-frame-x">
+			<ScrollArea axis="x" class="scroll-body">
+				<div class="scroll-strip">
+					<Button variant="primary">Left</Button>
+					<Button>Middle</Button>
+					<Button>Middle</Button>
+					<Button>Middle</Button>
+					<IconButton label="Right">{@render plus()}</IconButton>
+				</div>
+			</ScrollArea>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	<span class="row-label">modal</span>
 	<div class="block">
 		<Button onclick={() => (modalOpen = true)}>Open dialog</Button>
@@ -273,5 +365,40 @@
 		flex-direction: column;
 		gap: 8px;
 		width: 100%;
+	}
+
+	.grow {
+		flex: 1 1 12rem;
+		min-width: 0;
+	}
+
+	.scroll-frame {
+		display: flex;
+		flex-direction: column;
+		height: 140px;
+		border: 1px dashed rgb(255 255 255 / 0.25);
+	}
+
+	.scroll-frame-x {
+		width: 260px;
+		height: auto;
+	}
+
+	:global(.scroll-body) {
+		flex: 1 1 auto;
+		min-height: 0;
+		min-width: 0;
+	}
+
+	.scroll-stack {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.scroll-strip {
+		display: flex;
+		gap: 8px;
+		width: max-content;
 	}
 </style>

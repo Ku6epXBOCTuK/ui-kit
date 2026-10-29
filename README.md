@@ -20,7 +20,7 @@ active.
 
 ## Tokens
 
-63 custom properties, all prefixed `--ui-`, in six groups.
+66 custom properties, all prefixed `--ui-`, in six groups.
 
 Surfaces:
 `--ui-bg --ui-bg-muted --ui-surface --ui-panel --ui-field --ui-hover --ui-selected --ui-backdrop`
@@ -28,7 +28,18 @@ Surfaces:
 Text:
 `--ui-fg --ui-fg-secondary --ui-fg-muted --ui-on-accent --ui-on-danger --ui-on-intent`
 
-Lines: `--ui-line --ui-line-strong --ui-line-w`
+Lines:
+`--ui-line --ui-line-strong --ui-line-w --ui-focus-ring-w --ui-focus-ring-offset --ui-focus-room`
+
+`--ui-focus-room` is the space a focus ring needs outside a control: the ring
+width, the offset and one pixel against subpixel rounding. It is always derived
+from the other two, never set by hand.
+
+A control's focus ring is drawn outside its box, so a scroll container clips it
+unless the container keeps that room. Use `ScrollArea` for every overflow
+container that holds kit controls; it owns the padding and cancels the layout
+shift with a negative margin, so the ring stays whole and nothing moves. A plain
+`overflow: auto` with real padding, as in `Modal`, is safe too.
 
 Intent:
 `--ui-accent --ui-accent-hover --ui-accent-ink --ui-accent-surface --ui-success --ui-success-surface --ui-warning --ui-warning-surface --ui-danger --ui-danger-surface --ui-info --ui-info-surface --ui-focus`
@@ -48,6 +59,22 @@ the application.
 `tool` is generated from `tokens/tool.src.css`, where colours are authored as
 `hct()`. `pnpm build:themes` transpiles them to plain hex, so no consumer needs
 a PostCSS plugin. `kawaii` is written directly in `oklch()`.
+
+Both themes live in the `ui-tokens` cascade layer, so any unlayered rule from
+the application wins without a specificity fight. The flip side: a bare
+`:root { --ui-accent: ... }` now applies to light and dark alike, because it
+outranks both kit blocks. Override per mode instead:
+
+```css
+:root,
+:root[data-ui-mode="light"] {
+  --ui-accent: #ff7868;
+}
+
+:root[data-ui-mode="dark"] {
+  --ui-accent: #ff7868;
+}
+```
 
 ## Using it
 
@@ -123,6 +150,8 @@ import Button from "@ku6epxboctuk/ui-kit/components/Button";
 | `Modal`      | `open`, `title`, `label` for `aria-label`, `size` default/wide/full, `dismissable`, `onclose`, `closeIcon`                                 |
 | `Select`     | `select` from `createSelect`, `trigger` and `option` snippets, `footer`, `isSelected`, `multiselect`, `searchable`, `variant` filter/field |
 | `TagInput`   | `value` and `onchange` (not bindable, chips are a list), `suggestions`, `counts`, `onunknown`, `removeIcon`                                |
+| `ControlRow` | `align` start/center/end (default end), `gap`, `end` snippet pinned to the right                                                           |
+| `ScrollArea` | `axis` y/x/both, plus every native `div` attribute; the only scroll container that keeps focus rings whole                                 |
 
 They extend the matching `HTMLButtonAttributes` / `HTMLInputAttributes`, so
 `disabled`, `type`, `name`, `aria-*` and event handlers pass straight through.
@@ -138,7 +167,7 @@ those hooks.
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run
   it after editing the source.
-- `pnpm check:tokens` asserts that both themes define the same 63 names, that a
+- `pnpm check:tokens` asserts that both themes define the same 66 names, that a
   dark block only overrides names from its own light block, that no `hct()`
   reaches a shipped file, and that every `var(--ui-*)` in the package and the
   preview resolves.

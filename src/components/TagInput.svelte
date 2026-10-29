@@ -120,6 +120,8 @@
 
 <style>
 	.ui-tag-trigger {
+		height: auto;
+		min-height: var(--ui-control-h-md);
 		flex-wrap: wrap;
 		gap: var(--ui-space-1) var(--ui-space-2);
 		padding: var(--ui-space-1) var(--ui-space-2);
@@ -160,7 +162,7 @@
 	}
 
 	.ui-tag-chip-remove:focus-visible {
-		outline: 2px solid var(--ui-focus);
+		outline: var(--ui-focus-ring-w) solid var(--ui-focus);
 		outline-offset: 1px;
 	}
 

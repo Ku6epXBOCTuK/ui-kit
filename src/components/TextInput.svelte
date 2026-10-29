@@ -70,7 +70,7 @@
 	}
 
 	.ui-input:focus-visible {
-		outline: 2px solid var(--ui-focus);
+		outline: var(--ui-focus-ring-w) solid var(--ui-focus);
 		outline-offset: -1px;
 		border-color: var(--ui-line-strong);
 	}
