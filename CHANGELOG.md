@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.2.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/87b352e05e1e52759b4b27a102a87e7211773c27..0.2.0) - 2026-10-29
+#### Features
+- add chip component, use for tag input - ([7359ae8](https://github.com/Ku6epXBOCTuK/ui-kit/commit/7359ae8814419946f0f68f8cee520b8e52da1e85)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.1.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/36f035775a4a898385a36c9eb36cd90a86d894c4..0.1.0) - 2026-10-29
 #### Features
 - add scroll-area, control-row, update components - ([e991779](https://github.com/Ku6epXBOCTuK/ui-kit/commit/e9917791eae1ef4e5cd56956e7c4d0c718167242)) - Ku6epXBOCTuK
