@@ -1,4 +1,4 @@
-# @ku6epxboctuk/ui
+# @ku6epxboctuk/ui-kit
 
 Personal Svelte 5 UI kit: design tokens, headless behaviour and styled
 components, extracted from three projects that each grew their own.
