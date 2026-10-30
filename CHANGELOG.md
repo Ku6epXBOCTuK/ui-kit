@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.3.1](https://github.com/Ku6epXBOCTuK/ui-kit/compare/4c652cff95d73765e94a942c97c275f5ecc7428c..0.3.1) - 2026-10-30
+#### Bug Fixes
+- links inside chip - ([4c652cf](https://github.com/Ku6epXBOCTuK/ui-kit/commit/4c652cff95d73765e94a942c97c275f5ecc7428c)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.3.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/2b2977effd24153e5da960bf623398285230a77a..0.3.0) - 2026-10-30
 #### Features
 - add action slot to modal - ([2b2977e](https://github.com/Ku6epXBOCTuK/ui-kit/commit/2b2977effd24153e5da960bf623398285230a77a)) - Ku6epXBOCTuK
