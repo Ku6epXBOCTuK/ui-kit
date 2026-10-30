@@ -12,6 +12,7 @@
 		dismissable?: boolean;
 		onclose: () => void;
 		closeIcon?: Snippet;
+		actions?: Snippet;
 		children: Snippet;
 	}
 
@@ -23,6 +24,7 @@
 		dismissable = false,
 		onclose,
 		closeIcon,
+		actions,
 		children,
 	}: Props = $props();
 
@@ -61,13 +63,18 @@
 >
 	<div class="ui-modal-top">
 		<h2 class="ui-modal-title">{title}</h2>
-		<IconButton label={`Close ${title}`} onclick={() => panel?.close()}>
-			{#if closeIcon}
-				{@render closeIcon()}
-			{:else}
-				&times;
+		<div class="ui-modal-end">
+			{#if actions}
+				{@render actions()}
 			{/if}
-		</IconButton>
+			<IconButton label={`Close ${title}`} onclick={() => panel?.close()}>
+				{#if closeIcon}
+					{@render closeIcon()}
+				{:else}
+					&times;
+				{/if}
+			</IconButton>
+		</div>
 	</div>
 	<div class="ui-modal-body">
 		{@render children()}
@@ -107,7 +114,26 @@
 	}
 
 	.ui-modal[data-size="full"] .ui-modal-body {
-		padding: 0 var(--ui-space-2) var(--ui-space-2);
+		padding: 0 var(--ui-space-3) var(--ui-space-3);
+	}
+
+	.ui-modal[data-size="full"] .ui-modal-top {
+		padding: var(--ui-space-2) var(--ui-space-3);
+	}
+
+	.ui-modal[data-size="full"] .ui-modal-title {
+		min-width: 0;
+		font-size: var(--ui-fs-md);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.ui-modal-end {
+		flex: none;
+		display: flex;
+		align-items: center;
+		gap: var(--ui-space-1);
 	}
 
 	.ui-modal-top {
