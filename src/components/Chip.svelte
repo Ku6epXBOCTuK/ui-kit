@@ -109,6 +109,21 @@
 		text-decoration: underline;
 	}
 
+	.ui-chip-label :global(a) {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.ui-chip-label :global(a:hover) {
+		color: var(--ui-fg);
+		text-decoration: underline;
+	}
+
+	.ui-chip-label :global(a:focus-visible) {
+		outline: var(--ui-focus-ring-w) solid var(--ui-focus);
+		outline-offset: 1px;
+	}
+
 	.ui-chip-remove {
 		display: inline-flex;
 		flex: none;
