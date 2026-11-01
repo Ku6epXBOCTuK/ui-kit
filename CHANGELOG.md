@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.5.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/ce3611f082c7d77e91ac928878b9fb5a30a0977c..0.5.0) - 2026-11-01
+#### Features
+- add popover - ([ce3611f](https://github.com/Ku6epXBOCTuK/ui-kit/commit/ce3611f082c7d77e91ac928878b9fb5a30a0977c)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.4.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/8280aaf6489141140ab232b67fa2e593fb2d59b0..0.4.0) - 2026-11-01
 #### Features
 - add toggle chip - ([8280aaf](https://github.com/Ku6epXBOCTuK/ui-kit/commit/8280aaf6489141140ab232b67fa2e593fb2d59b0)) - Ku6epXBOCTuK
