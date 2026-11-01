@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.4.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/8280aaf6489141140ab232b67fa2e593fb2d59b0..0.4.0) - 2026-11-01
+#### Features
+- add toggle chip - ([8280aaf](https://github.com/Ku6epXBOCTuK/ui-kit/commit/8280aaf6489141140ab232b67fa2e593fb2d59b0)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.3.2](https://github.com/Ku6epXBOCTuK/ui-kit/compare/5f1d98646a6310597ad01abfee3df1a3543085fc..0.3.2) - 2026-11-01
 #### Bug Fixes
 - add bind to elements on buttons - ([5f1d986](https://github.com/Ku6epXBOCTuK/ui-kit/commit/5f1d98646a6310597ad01abfee3df1a3543085fc)) - Ku6epXBOCTuK
