@@ -12,6 +12,7 @@
 		active?: boolean;
 		expanded?: boolean;
 		children: Snippet;
+		element?: HTMLButtonElement;
 	}
 
 	let {
@@ -24,12 +25,14 @@
 		type = "button",
 		class: className = "",
 		children,
+		element = $bindable(),
 		...rest
 	}: Props = $props();
 </script>
 
 <button
 	{...rest}
+	bind:this={element}
 	{type}
 	{disabled}
 	aria-label={label}
