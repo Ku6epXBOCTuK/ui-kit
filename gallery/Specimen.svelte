@@ -10,6 +10,7 @@
 	import Select from "../src/components/Select.svelte";
 	import TagInput from "../src/components/TagInput.svelte";
 	import TextInput from "../src/components/TextInput.svelte";
+	import ToggleChip from "../src/components/ToggleChip.svelte";
 	import { createSelect } from "../src/headless/select.svelte.ts";
 
 	const tones = [
@@ -67,6 +68,7 @@
 	let tags = $state(["bug", "ui"]);
 	let openedChip = $state("none");
 	let chipTags = $state(["ui", "ux"]);
+	let toggled = $state(["open", "blocked"]);
 	const tagSuggestions = [
 		"bug",
 		"ui",
@@ -218,6 +220,27 @@
 		</Chip>
 	{/each}
 	<Chip unavailable hint="Task is gone">LOG-9</Chip>
+</div>
+
+<div class="row">
+	<span class="row-label">toggle chip / pressed</span>
+	{#each statuses.slice(0, 4) as status (status)}
+		<ToggleChip
+			active={toggled.includes(status)}
+			onclick={() =>
+				(toggled = toggled.includes(status)
+					? toggled.filter((item) => item !== status)
+					: [...toggled, status])}
+		>
+			{status}
+		</ToggleChip>
+	{/each}
+	<ToggleChip active={true}>
+		<span class="sample-dot"></span>
+		with dot
+	</ToggleChip>
+	<ToggleChip disabled>disabled</ToggleChip>
+	<ToggleChip active={true} disabled>pressed and disabled</ToggleChip>
 </div>
 
 <div class="row">
@@ -385,6 +408,13 @@
 		flex-direction: column;
 		gap: 8px;
 		width: 100%;
+	}
+
+	.sample-dot {
+		width: 0.5625rem;
+		height: 0.5625rem;
+		border-radius: 50%;
+		background: var(--ui-accent);
 	}
 
 	.grow {

@@ -146,6 +146,7 @@ import Button from "@ku6epxboctuk/ui-kit/components/Button";
 | `IconButton` | required `label` for `aria-label`, `variant` ghost/secondary/danger, `size`, `active`, `expanded`, icon as children, `bind:element`         |
 | `Badge`      | `tone` neutral/accent/success/warning/danger/info, `variant` soft/solid/outline, `size`, `dot`                                              |
 | `Chip`       | `children`, `onopen`/`openLabel`, `onremove`/`removeLabel`, `unavailable`/`hint`, `class`                                                   |
+| `ToggleChip` | `children`, `active` for `aria-pressed`, `class`, `bind:element`; native button attributes pass through                                     |
 | `Field`      | `label`, `hint`, `error`, `required`; children receive the generated control id                                                             |
 | `TextInput`  | `bind:value`, `size`, `invalid`; everything else is a native input attribute                                                                |
 | `Modal`      | `open`, `title`, `label` for `aria-label`, `size` default/wide/full, `dismissable`, `onclose`, `closeIcon`                                  |
