@@ -1,4 +1,5 @@
 <script lang="ts" generics="T">
+	import { placePopover } from "../headless/popover.svelte.ts";
 	import type { Select } from "../headless/select.svelte.ts";
 	import type { Snippet } from "svelte";
 
@@ -49,31 +50,17 @@
 	function place() {
 		if (popover === null || root === null) return;
 
-		const anchor = root.getBoundingClientRect();
-		const margin = 8;
-		const gap = 4;
-
 		popover.style.minWidth = `${root.offsetWidth}px`;
 
-		const width = popover.offsetWidth;
-		const height = popover.offsetHeight;
-		const spaceBelow = window.innerHeight - anchor.bottom - margin;
-		const spaceAbove = anchor.top - margin;
-		const flip = spaceBelow < height && spaceAbove > spaceBelow;
-
-		const top = flip
-			? Math.max(margin, anchor.top - height - gap)
-			: Math.min(
-					anchor.bottom + gap,
-					Math.max(margin, window.innerHeight - height - margin),
-				);
-		const left = Math.min(
-			Math.max(margin, anchor.left),
-			Math.max(margin, window.innerWidth - width - margin),
+		const point = placePopover(
+			root.getBoundingClientRect(),
+			{ width: popover.offsetWidth, height: popover.offsetHeight },
+			{ width: window.innerWidth, height: window.innerHeight },
+			{ placement: "start" },
 		);
 
-		popover.style.top = `${top}px`;
-		popover.style.left = `${left}px`;
+		popover.style.top = `${point.top}px`;
+		popover.style.left = `${point.left}px`;
 	}
 
 	function handleKeydown(event: KeyboardEvent) {

@@ -6,6 +6,7 @@
 	import Field from "../src/components/Field.svelte";
 	import IconButton from "../src/components/IconButton.svelte";
 	import Modal from "../src/components/Modal.svelte";
+	import Popover from "../src/components/Popover.svelte";
 	import ScrollArea from "../src/components/ScrollArea.svelte";
 	import Select from "../src/components/Select.svelte";
 	import TagInput from "../src/components/TagInput.svelte";
@@ -34,6 +35,8 @@
 	let name = $state("");
 	let email = $state("not-an-email");
 	let modalOpen = $state(false);
+	let popoverOpen = $state(false);
+	let popoverAnchor = $state<HTMLButtonElement>();
 
 	let single = $state<string | null>("open");
 	const one = createSelect<string>({
@@ -387,6 +390,29 @@
 				>
 			</div>
 		</Modal>
+	</div>
+</div>
+
+<div class="row">
+	<span class="row-label">popover</span>
+	<div class="block">
+		<Button
+			bind:element={popoverAnchor}
+			onclick={() => (popoverOpen = !popoverOpen)}
+		>
+			Formats
+		</Button>
+		<Popover
+			open={popoverOpen}
+			anchor={popoverAnchor ?? null}
+			role="menu"
+			label="Formats"
+			onclose={() => (popoverOpen = false)}
+		>
+			<Button variant="ghost">PNG</Button>
+			<Button variant="ghost">JPG</Button>
+			<Button variant="ghost">WebP</Button>
+		</Popover>
 	</div>
 </div>
 

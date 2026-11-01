@@ -106,6 +106,7 @@ component reads them.
 ```ts
 import { createSelect } from "@ku6epxboctuk/ui-kit/headless/select";
 import { createTagInput } from "@ku6epxboctuk/ui-kit/headless/tags";
+import { placePopover } from "@ku6epxboctuk/ui-kit/headless/popover";
 ```
 
 `createSelect<T>(config)` owns `open`, `query`, `filtered`, `active` and
@@ -121,6 +122,12 @@ through. Config: `items` and `getLabel` required, then `getKeywords`, `filter`,
 commit splits on whitespace and commas, lowercases, drops duplicates and already
 chosen tags, then reports the new list through `onChange`. `onUnknown` is
 awaited for every committed tag that is not in `suggestions`.
+
+`placePopover(anchor, box, viewport, options)` is the placement of a floating
+panel: pure numbers in, `{top, left}` out. `placement` is start, end or side,
+`gap` is the distance to the anchor, `margin` is the least distance to the
+viewport edge. Both axes are clamped, and the panel goes above the anchor when
+there is no room below.
 
 Two things to know:
 
@@ -150,10 +157,17 @@ import Button from "@ku6epxboctuk/ui-kit/components/Button";
 | `Field`      | `label`, `hint`, `error`, `required`; children receive the generated control id                                                             |
 | `TextInput`  | `bind:value`, `size`, `invalid`; everything else is a native input attribute                                                                |
 | `Modal`      | `open`, `title`, `label` for `aria-label`, `size` default/wide/full, `dismissable`, `onclose`, `closeIcon`                                  |
+| `Popover`    | `open`, `anchor` element, `placement` start/end/side, `gap`, `margin`, `role`, `label`, `onclose`, `class`                                  |
 | `Select`     | `select` from `createSelect`, `trigger` and `option` snippets, `footer`, `isSelected`, `multiselect`, `searchable`, `variant` filter/field  |
 | `TagInput`   | `value` and `onchange` (not bindable, chips are a list), `suggestions`, `counts`, `onunknown`                                               |
 | `ControlRow` | `align` start/center/end (default end), `gap`, `end` snippet pinned to the right                                                            |
 | `ScrollArea` | `axis` y/x/both, plus every native `div` attribute; the only scroll container that keeps focus rings whole                                  |
+
+`Popover` places itself from the anchor rect: below by preference, above when
+there is no room, and clamped into the viewport on both axes, so it never lands
+at the screen edge. It shows itself only after placing, which is what keeps the
+first frame correct. It owns the top layer, outside-click dismissal and Escape;
+the trigger stays in the caller, because the trigger is the caller's markup.
 
 They extend the matching `HTMLButtonAttributes` / `HTMLInputAttributes`, so
 `disabled`, `type`, `name`, `aria-*` and event handlers pass straight through.
