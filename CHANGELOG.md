@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.8.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/60d4e49d34567df36f818e5b2befa49889bb8850..0.8.0) - 2026-11-02
+#### Features
+- add ConfigmDialog and FileDrop - ([60d4e49](https://github.com/Ku6epXBOCTuK/ui-kit/commit/60d4e49d34567df36f818e5b2befa49889bb8850)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.7.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/78f41aef0d7bb254d2cfbc8ff7bb6a2f7a0f0a6e..0.7.0) - 2026-11-02
 #### Features
 - add components Label, Notice, SectionTitle - ([78f41ae](https://github.com/Ku6epXBOCTuK/ui-kit/commit/78f41aef0d7bb254d2cfbc8ff7bb6a2f7a0f0a6e)) - Ku6epXBOCTuK
