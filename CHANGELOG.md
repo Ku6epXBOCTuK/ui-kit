@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.6.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/be265a571756e584d5e0d0f107dcdbe2548f65bc..0.6.0) - 2026-11-02
+#### Features
+- add components Checkbox, Field, TextArea, TextInput - ([be265a5](https://github.com/Ku6epXBOCTuK/ui-kit/commit/be265a571756e584d5e0d0f107dcdbe2548f65bc)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.5.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/ce3611f082c7d77e91ac928878b9fb5a30a0977c..0.5.0) - 2026-11-01
 #### Features
 - add popover - ([ce3611f](https://github.com/Ku6epXBOCTuK/ui-kit/commit/ce3611f082c7d77e91ac928878b9fb5a30a0977c)) - Ku6epXBOCTuK
