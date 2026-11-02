@@ -147,28 +147,10 @@ of them import an icon or hold a user-facing string.
 import Button from "@ku6epxboctuk/ui-kit/components/Button";
 ```
 
-| Component       | Props that matter                                                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Button`        | `variant` primary/secondary/ghost/danger, `size` sm/md/lg, `icon` and `iconAfter` snippets, `loading`, `bind:element` for the native button |
-| `IconButton`    | required `label` for `aria-label`, `variant` ghost/secondary/danger, `size`, `active`, `expanded`, icon as children, `bind:element`         |
-| `Badge`         | `tone` neutral/accent/success/warning/danger/info, `variant` soft/solid/outline, `size`, `dot`                                              |
-| `Chip`          | `children`, `onopen`/`openLabel`, `onremove`/`removeLabel`, `unavailable`/`hint`, `class`                                                   |
-| `ToggleChip`    | `children`, `active` for `aria-pressed`, `class`, `bind:element`; native button attributes pass through                                     |
-| `Field`         | `label`, `hint`, `error`, `required`, `orientation` stack/row; children receive the generated control id                                    |
-| `TextInput`     | `bind:value`, `size`, `invalid`, `mono`; everything else is a native input attribute                                                        |
-| `TextArea`      | `bind:value`, `invalid`, `mono`, `rows`; everything else is a native textarea attribute                                                     |
-| `Checkbox`      | `bind:checked`; everything else is a native input attribute                                                                                 |
-| `Label`         | `tone` muted/secondary/accent/danger; small caps text that is not a heading                                                                 |
-| `SectionTitle`  | `level` 2/3/4, `tone` muted/accent/danger/warning, `size` sm/md, `mono` for the paired-column heads                                         |
-| `Notice`        | `tone` neutral/accent/success/warning/danger/info, `variant` inline/box, `size` sm/md/lg, `role`                                            |
-| `Modal`         | `open`, `title`, `label` for `aria-label`, `size` default/wide/full, `dismissable`, `onclose`, `closeIcon`                                  |
-| `ConfirmDialog` | `title`, `body` or children, `open`, `confirmLabel`, `cancelLabel`, `danger`, `disabled`, `onconfirm`, `oncancel`                           |
-| `FileDrop`      | `label`, `accept` (type list or `.ext`), `disabled`, `onpick(file)`                                                                         |
-| `Popover`       | `open`, `anchor` element, `placement` start/end/side, `gap`, `margin`, `role`, `label`, `onclose`, `class`                                  |
-| `Select`        | `select` from `createSelect`, `trigger` and `option` snippets, `footer`, `isSelected`, `multiselect`, `searchable`, `variant` filter/field  |
-| `TagInput`      | `value` and `onchange` (not bindable, chips are a list), `suggestions`, `counts`, `onunknown`                                               |
-| `ControlRow`    | `align` start/center/end (default end), `gap`, `end` snippet pinned to the right                                                            |
-| `ScrollArea`    | `axis` y/x/both, plus every native `div` attribute; the only scroll container that keeps focus rings whole                                  |
+Every component, with all of its props, types and defaults:
+[docs/reference/components.md](./docs/reference/components.md). The file is
+generated from `interface Props`, so it cannot drift from the code. A sentence
+above a prop in the interface becomes that prop's description.
 
 `Popover` places itself from the anchor rect: below by preference, above when
 there is no room, and clamped into the viewport on both axes, so it never lands
@@ -198,6 +180,10 @@ those hooks.
 - `pnpm gallery` serves the component gallery on port 4322 with the four theme
   and mode combinations side by side.
 - `pnpm check` runs `svelte-check` against `tsconfig.json`.
+- `pnpm docs:build` regenerates `docs/reference/components.md` from the
+  `interface Props` of every component. Prop descriptions come from the doc
+  comment above the prop.
+- `pnpm docs:check` fails when the generated reference is out of date.
 - `pnpm preview` serves the token page on
   [http://localhost:4321/preview/](http://localhost:4321/preview/) with all four
   theme and mode combinations side by side.

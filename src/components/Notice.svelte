@@ -6,11 +6,17 @@
 	type Size = "sm" | "md" | "lg";
 
 	interface Props {
+		/** Colour family: neutral, accent, success, warning, danger or info. */
 		tone?: Tone;
+		/** inline sits in the text flow, box draws a bordered block. */
 		variant?: Variant;
+		/** sm, md or lg text step. */
 		size?: Size;
+		/** Passed to the container as role, so a live region can announce the notice. */
 		role?: string;
+		/** Notice text. */
 		children: Snippet;
+		/** Extra classes on the container. */
 		class?: string;
 	}
 

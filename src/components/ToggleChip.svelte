@@ -3,8 +3,11 @@
 	import type { HTMLButtonAttributes } from "svelte/elements";
 
 	interface Props extends HTMLButtonAttributes {
+		/** Pressed state: sets aria-pressed and the active style. */
 		active?: boolean;
+		/** Chip label. */
 		children: Snippet;
+		/** Bindable native button element. */
 		element?: HTMLButtonElement;
 	}
 

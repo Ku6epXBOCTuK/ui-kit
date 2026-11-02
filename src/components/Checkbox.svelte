@@ -5,6 +5,7 @@
 		HTMLInputAttributes,
 		"type" | "value" | "checked"
 	> {
+		/** Bindable checked state. */
 		checked?: boolean;
 	}
 

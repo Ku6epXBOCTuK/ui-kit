@@ -5,11 +5,17 @@
 	type Size = "sm" | "md";
 
 	interface Props {
+		/** Heading level 2, 3 or 4; the element follows it. */
 		level?: 2 | 3 | 4;
+		/** muted by default; accent for section heads, danger and warning for states. */
 		tone?: Tone;
+		/** sm or md. */
 		size?: Size;
+		/** Uses the monospace face, for paired-column heads. */
 		mono?: boolean;
+		/** Title text. */
 		children: Snippet;
+		/** Extra classes on the heading. */
 		class?: string;
 	}
 

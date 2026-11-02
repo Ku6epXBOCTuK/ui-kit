@@ -31,3 +31,6 @@ jobs:
 
       - name: Check tokens
         run: pnpm check:tokens
+
+      - name: Check docs
+        run: pnpm docs:check

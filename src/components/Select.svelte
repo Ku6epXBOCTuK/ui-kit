@@ -6,21 +6,37 @@
 	type Size = "sm" | "md" | "lg";
 
 	interface Props {
+		/** State and behaviour from createSelect. */
 		select: Select<T>;
+		/** Stable key of an item, used by the keyed each. */
 		getKey: (item: T) => string | number;
+		/** Your trigger markup; the list opens when select.open turns true. */
 		trigger: Snippet;
+		/** Snippet for one option, called with the item. */
 		option: Snippet<[T]>;
+		/** Snippet under the list, for actions such as Clear. */
 		footer?: Snippet;
+		/** Whether an item shows as selected; defaults to none. */
 		isSelected?: (item: T) => boolean;
+		/** Runs before the machine's keyboard handling; return true to mark the key handled. */
 		onkeydown?: (event: KeyboardEvent) => boolean;
+		/** Shows a search input at the top of the list and focuses it on open. */
 		searchable?: boolean;
+		/** Placeholder and aria-label of the search input. */
 		searchPlaceholder?: string;
+		/** Text shown when nothing matches the query. */
 		emptyLabel?: string;
+		/** aria-label of the listbox. */
 		listLabel?: string;
+		/** Id of the listbox, so a trigger can point at it with aria-controls. */
 		listId?: string;
+		/** Tells assistive tech that several items can be selected. */
 		multiselect?: boolean;
+		/** filter is inline, field fills the width like an input. */
 		variant?: "filter" | "field";
+		/** sm, md or lg trigger height. */
 		size?: Size;
+		/** Extra classes on the root. */
 		class?: string;
 	}
 

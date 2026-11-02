@@ -5,7 +5,9 @@
 	type Axis = "x" | "y" | "both";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
+		/** Directions that scroll: y, x or both. */
 		axis?: Axis;
+		/** Scrollable content. */
 		children?: Snippet;
 	}
 

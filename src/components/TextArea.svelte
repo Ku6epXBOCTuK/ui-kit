@@ -2,8 +2,11 @@
 	import type { HTMLTextareaAttributes } from "svelte/elements";
 
 	interface Props extends Omit<HTMLTextareaAttributes, "value"> {
+		/** Bindable text. */
 		value?: string;
+		/** Marks the textarea invalid. */
 		invalid?: boolean;
+		/** Uses the monospace face. */
 		mono?: boolean;
 	}
 
