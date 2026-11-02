@@ -147,6 +147,11 @@ of them import an icon or hold a user-facing string.
 import Button from "@ku6epxboctuk/ui-kit/components/Button";
 ```
 
+Component declarations ship next to the sources as
+`src/components/*.d.svelte.ts`, so `svelte-check --incremental` resolves a
+component import instead of reporting a missing module. A consumer types those
+imports with `"allowArbitraryExtensions": true` in its `tsconfig.json`.
+
 Every component, with all of its props, types and defaults:
 [docs/reference/components.md](./docs/reference/components.md). The file is
 generated from `interface Props`, so it cannot drift from the code. A sentence
@@ -176,6 +181,9 @@ those hooks.
   dark block only overrides names from its own light block, that no `hct()`
   reaches a shipped file, and that every `var(--ui-*)` in the package and the
   preview resolves.
+- `pnpm build:types` writes `src/components/*.d.svelte.ts` from the component
+  sources. Run it after changing a component's props.
+- `pnpm check:types` fails when the committed declarations are out of date.
 - `pnpm test` runs the headless specs in `src/**/*.spec.svelte.ts`.
 - `pnpm gallery` serves the component gallery on port 4322 with the four theme
   and mode combinations side by side.

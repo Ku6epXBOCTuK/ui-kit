@@ -43,7 +43,9 @@
 	"packageManager": "pnpm@12.15.0",
 	"scripts": {
 		"build:themes": "node scripts/build-themes.mjs",
+		"build:types": "node scripts/build-types.mjs",
 		"check:tokens": "node scripts/check-tokens.mjs",
+		"check:types": "node scripts/build-types.mjs --check",
 		"docs:build": "node scripts/build-docs.mjs",
 		"docs:check": "node scripts/build-docs.mjs --check",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -51,7 +53,7 @@
 		"test": "vitest run",
 		"gallery": "vite --config vite.config.gallery.ts",
 		"preview": "node scripts/preview.mjs",
-		"prepublishOnly": "pnpm check && pnpm test && pnpm build:themes && pnpm docs:check"
+		"prepublishOnly": "pnpm check && pnpm test && pnpm build:themes && pnpm docs:check && pnpm check:types"
 	},
 	"peerDependencies": {
 		"svelte": "^5.57.0"
@@ -62,6 +64,7 @@
 		"@fontsource/ibm-plex-sans": "^5.3.0",
 		"@fontsource/nunito": "^5.3.0",
 		"@panmdaa/colors": "^0.4.2",
+		"@sveltejs/package": "^3.0.2",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"postcss": "^8.5.26",
 		"prettier": "^3.9.10",
