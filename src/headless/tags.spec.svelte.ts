@@ -139,12 +139,42 @@ describe("createTagInput", () => {
 			onChange: (next) => {
 				tags = next;
 			},
-			lowercase: false,
+			lowercase: () => false,
 		});
 
 		input.setText("Bug");
 		void input.commit();
 
 		expect(tags).toEqual(["Bug"]);
+	});
+
+	it("drops the tags a validator rejects", () => {
+		let tags: string[] = [];
+		const input = createTagInput({
+			value: () => tags,
+			onChange: (next) => {
+				tags = next;
+			},
+			validate: () => (tag) => (tag.startsWith("x") ? "reserved" : null),
+		});
+
+		input.setText("ok, xy, fine");
+		void input.commit();
+
+		expect(tags).toEqual(["ok", "fine"]);
+	});
+
+	it("moves a tag to another position", () => {
+		let tags = ["a", "b", "c"];
+		const input = createTagInput({
+			value: () => tags,
+			onChange: (next) => {
+				tags = next;
+			},
+		});
+
+		input.move(0, 2);
+
+		expect(tags).toEqual(["b", "c", "a"]);
 	});
 });

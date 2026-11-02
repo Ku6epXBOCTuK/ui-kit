@@ -1,0 +1,2 @@
+[comments]
+doc_paths = ["src/components/**", "src/headless/**"]

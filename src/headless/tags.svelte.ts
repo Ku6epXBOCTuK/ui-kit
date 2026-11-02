@@ -5,7 +5,8 @@ export interface TagInputConfig {
 	suggestions?: () => string[];
 	onChange: (tags: string[]) => void;
 	onUnknown?: (tag: string) => Promise<unknown> | void;
-	lowercase?: boolean;
+	lowercase?: () => boolean;
+	validate?: () => ((tag: string) => string | null) | undefined;
 }
 
 const SEPARATORS = /[\s,]+/;
@@ -27,16 +28,19 @@ export function createTagInput(config: TagInputConfig) {
 
 	function normalize(tag: string): string {
 		const trimmed = tag.trim();
-		return (config.lowercase ?? true) ? trimmed.toLowerCase() : trimmed;
+		return (config.lowercase?.() ?? true) ? trimmed.toLowerCase() : trimmed;
+	}
+
+	function valid(tag: string): boolean {
+		if (tag === "" || value.includes(tag)) return false;
+		const problem = config.validate?.()?.(tag);
+		return problem === undefined || problem === null;
 	}
 
 	function add(candidates: string[]) {
 		const fresh = candidates
 			.map(normalize)
-			.filter(
-				(tag, index, all) =>
-					tag !== "" && !value.includes(tag) && all.indexOf(tag) === index,
-			);
+			.filter((tag, index, all) => valid(tag) && all.indexOf(tag) === index);
 		if (fresh.length > 0) config.onChange([...value, ...fresh]);
 		text = "";
 		select.setQuery("");
@@ -59,6 +63,15 @@ export function createTagInput(config: TagInputConfig) {
 
 	function remove(tag: string) {
 		config.onChange(value.filter((item) => item !== tag));
+	}
+
+	function move(from: number, to: number) {
+		if (from === to || from < 0 || from >= value.length) return;
+		const next = [...value];
+		const moved = next.splice(from, 1)[0];
+		if (moved === undefined) return;
+		next.splice(Math.min(Math.max(to, 0), next.length), 0, moved);
+		config.onChange(next);
 	}
 
 	function setText(next: string) {
@@ -101,11 +114,13 @@ export function createTagInput(config: TagInputConfig) {
 			return value;
 		},
 		select,
+		normalize,
 		setText,
 		clear,
 		add,
 		commit,
 		remove,
+		move,
 		handleKeydown,
 	};
 }
