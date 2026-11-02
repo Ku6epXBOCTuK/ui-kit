@@ -7,12 +7,14 @@
 		value?: string;
 		size?: Size;
 		invalid?: boolean;
+		mono?: boolean;
 	}
 
 	let {
 		value = $bindable(""),
 		size = "md",
 		invalid = false,
+		mono = false,
 		type = "text",
 		class: className = "",
 		...rest
@@ -26,6 +28,7 @@
 	aria-invalid={invalid || undefined}
 	data-ui="input"
 	data-size={size}
+	data-mono={mono || undefined}
 	class="ui-input {className}"
 />
 
@@ -59,6 +62,10 @@
 		height: var(--ui-control-h-lg);
 		padding: 0 var(--ui-space-4);
 		font-size: var(--ui-fs-lg);
+	}
+
+	.ui-input[data-mono] {
+		font-family: var(--ui-font-mono);
 	}
 
 	.ui-input::placeholder {

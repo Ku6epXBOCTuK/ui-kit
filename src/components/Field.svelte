@@ -7,6 +7,7 @@
 		error?: string;
 		required?: boolean;
 		id?: string;
+		orientation?: "stack" | "row";
 		children: Snippet<[string]>;
 		class?: string;
 	}
@@ -17,6 +18,7 @@
 		error,
 		required = false,
 		id,
+		orientation = "stack",
 		children,
 		class: className = "",
 	}: Props = $props();
@@ -28,6 +30,7 @@
 <div
 	class="ui-field {className}"
 	data-ui="field"
+	data-orientation={orientation}
 	data-invalid={error ? true : undefined}
 >
 	{#if label}
@@ -51,6 +54,18 @@
 		flex-direction: column;
 		gap: var(--ui-space-1);
 		min-width: 0;
+	}
+
+	.ui-field[data-orientation="row"] {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: center;
+		column-gap: var(--ui-space-3);
+		row-gap: var(--ui-space-1);
+	}
+
+	.ui-field[data-orientation="row"] > .ui-field-message {
+		grid-column: 1 / -1;
 	}
 
 	.ui-field-label {
