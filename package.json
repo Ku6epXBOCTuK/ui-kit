@@ -23,8 +23,8 @@
 	"exports": {
 		"./tokens.css": "./tokens.css",
 		"./kawaii.css": "./tokens/kawaii.css",
-		"./headless/*": "./src/headless/*.svelte.ts",
-		"./components/*": "./src/components/*.svelte",
+		"./headless/*.svelte.ts": "./src/headless/*.svelte.ts",
+		"./components/*.svelte": "./src/components/*.svelte",
 		"./tokens/*": "./tokens/*"
 	},
 	"files": [

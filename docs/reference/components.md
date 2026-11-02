@@ -8,7 +8,7 @@ A prop shown as `bind:name` is bindable; `?` marks an optional prop.
 ## Badge
 
 ```svelte
-import Badge from "@ku6epxboctuk/ui-kit/components/Badge";
+import Badge from "@ku6epxboctuk/ui-kit/components/Badge.svelte";
 ```
 
 | Prop        | Type                                                                    | Default     | Description                                                                   |
@@ -24,7 +24,7 @@ import Badge from "@ku6epxboctuk/ui-kit/components/Badge";
 ## Button
 
 ```svelte
-import Button from "@ku6epxboctuk/ui-kit/components/Button";
+import Button from "@ku6epxboctuk/ui-kit/components/Button.svelte";
 ```
 
 Extends `HTMLButtonAttributes`; those attributes and event handlers pass
@@ -43,7 +43,7 @@ through.
 ## Checkbox
 
 ```svelte
-import Checkbox from "@ku6epxboctuk/ui-kit/components/Checkbox";
+import Checkbox from "@ku6epxboctuk/ui-kit/components/Checkbox.svelte";
 ```
 
 Extends `Omit<HTMLInputAttributes, "type" | "value" | "checked">`; those
@@ -56,7 +56,7 @@ attributes and event handlers pass through.
 ## Chip
 
 ```svelte
-import Chip from "@ku6epxboctuk/ui-kit/components/Chip";
+import Chip from "@ku6epxboctuk/ui-kit/components/Chip.svelte";
 ```
 
 | Prop           | Type         | Default | Description                                                                          |
@@ -73,7 +73,8 @@ import Chip from "@ku6epxboctuk/ui-kit/components/Chip";
 ## ConfirmDialog
 
 ```svelte
-import ConfirmDialog from "@ku6epxboctuk/ui-kit/components/ConfirmDialog";
+import ConfirmDialog from
+"@ku6epxboctuk/ui-kit/components/ConfirmDialog.svelte";
 ```
 
 | Prop            | Type         | Default    | Description                                                        |
@@ -92,7 +93,7 @@ import ConfirmDialog from "@ku6epxboctuk/ui-kit/components/ConfirmDialog";
 ## ControlRow
 
 ```svelte
-import ControlRow from "@ku6epxboctuk/ui-kit/components/ControlRow";
+import ControlRow from "@ku6epxboctuk/ui-kit/components/ControlRow.svelte";
 ```
 
 | Prop        | Type                           | Default               | Description                                 |
@@ -106,7 +107,7 @@ import ControlRow from "@ku6epxboctuk/ui-kit/components/ControlRow";
 ## Field
 
 ```svelte
-import Field from "@ku6epxboctuk/ui-kit/components/Field";
+import Field from "@ku6epxboctuk/ui-kit/components/Field.svelte";
 ```
 
 | Prop           | Type                | Default   | Description                                                                  |
@@ -123,7 +124,7 @@ import Field from "@ku6epxboctuk/ui-kit/components/Field";
 ## FileDrop
 
 ```svelte
-import FileDrop from "@ku6epxboctuk/ui-kit/components/FileDrop";
+import FileDrop from "@ku6epxboctuk/ui-kit/components/FileDrop.svelte";
 ```
 
 | Prop        | Type                   | Default | Description                                                                                  |
@@ -137,7 +138,7 @@ import FileDrop from "@ku6epxboctuk/ui-kit/components/FileDrop";
 ## IconButton
 
 ```svelte
-import IconButton from "@ku6epxboctuk/ui-kit/components/IconButton";
+import IconButton from "@ku6epxboctuk/ui-kit/components/IconButton.svelte";
 ```
 
 Extends `HTMLButtonAttributes`; those attributes and event handlers pass
@@ -156,7 +157,7 @@ through.
 ## Label
 
 ```svelte
-import Label from "@ku6epxboctuk/ui-kit/components/Label";
+import Label from "@ku6epxboctuk/ui-kit/components/Label.svelte";
 ```
 
 | Prop       | Type                                             | Default   | Description                                                       |
@@ -168,7 +169,7 @@ import Label from "@ku6epxboctuk/ui-kit/components/Label";
 ## Modal
 
 ```svelte
-import Modal from "@ku6epxboctuk/ui-kit/components/Modal";
+import Modal from "@ku6epxboctuk/ui-kit/components/Modal.svelte";
 ```
 
 | Prop           | Type                            | Default     | Description                                                              |
@@ -186,7 +187,7 @@ import Modal from "@ku6epxboctuk/ui-kit/components/Modal";
 ## Notice
 
 ```svelte
-import Notice from "@ku6epxboctuk/ui-kit/components/Notice";
+import Notice from "@ku6epxboctuk/ui-kit/components/Notice.svelte";
 ```
 
 | Prop       | Type                                                                    | Default     | Description                                                                |
@@ -201,7 +202,7 @@ import Notice from "@ku6epxboctuk/ui-kit/components/Notice";
 ## Popover
 
 ```svelte
-import Popover from "@ku6epxboctuk/ui-kit/components/Popover";
+import Popover from "@ku6epxboctuk/ui-kit/components/Popover.svelte";
 ```
 
 | Prop           | Type                  | Default | Description                                                                             |
@@ -224,7 +225,7 @@ import Popover from "@ku6epxboctuk/ui-kit/components/Popover";
 ## ScrollArea
 
 ```svelte
-import ScrollArea from "@ku6epxboctuk/ui-kit/components/ScrollArea";
+import ScrollArea from "@ku6epxboctuk/ui-kit/components/ScrollArea.svelte";
 ```
 
 Extends `HTMLAttributes<HTMLDivElement>`; those attributes and event handlers
@@ -238,7 +239,7 @@ pass through.
 ## SectionTitle
 
 ```svelte
-import SectionTitle from "@ku6epxboctuk/ui-kit/components/SectionTitle";
+import SectionTitle from "@ku6epxboctuk/ui-kit/components/SectionTitle.svelte";
 ```
 
 | Prop       | Type                                           | Default   | Description                                                                |
@@ -253,7 +254,7 @@ import SectionTitle from "@ku6epxboctuk/ui-kit/components/SectionTitle";
 ## Select
 
 ```svelte
-import Select from "@ku6epxboctuk/ui-kit/components/Select";
+import Select from "@ku6epxboctuk/ui-kit/components/Select.svelte";
 ```
 
 | Prop                 | Type                                | Default           | Description                                                                       |
@@ -278,7 +279,7 @@ import Select from "@ku6epxboctuk/ui-kit/components/Select";
 ## TagInput
 
 ```svelte
-import TagInput from "@ku6epxboctuk/ui-kit/components/TagInput";
+import TagInput from "@ku6epxboctuk/ui-kit/components/TagInput.svelte";
 ```
 
 | Prop           | Type                                        | Default                              | Description                                                                               |
@@ -306,7 +307,7 @@ import TagInput from "@ku6epxboctuk/ui-kit/components/TagInput";
 ## TextArea
 
 ```svelte
-import TextArea from "@ku6epxboctuk/ui-kit/components/TextArea";
+import TextArea from "@ku6epxboctuk/ui-kit/components/TextArea.svelte";
 ```
 
 Extends `Omit<HTMLTextareaAttributes, "value">`; those attributes and event
@@ -321,7 +322,7 @@ handlers pass through.
 ## TextInput
 
 ```svelte
-import TextInput from "@ku6epxboctuk/ui-kit/components/TextInput";
+import TextInput from "@ku6epxboctuk/ui-kit/components/TextInput.svelte";
 ```
 
 Extends `Omit<HTMLInputAttributes, "size" | "value">`; those attributes and
@@ -337,7 +338,7 @@ event handlers pass through.
 ## ToggleChip
 
 ```svelte
-import ToggleChip from "@ku6epxboctuk/ui-kit/components/ToggleChip";
+import ToggleChip from "@ku6epxboctuk/ui-kit/components/ToggleChip.svelte";
 ```
 
 Extends `HTMLButtonAttributes`; those attributes and event handlers pass

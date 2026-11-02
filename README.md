@@ -104,9 +104,9 @@ The state machines are `.svelte.ts`, so they use runes and stay reactive when a
 component reads them.
 
 ```ts
-import { createSelect } from "@ku6epxboctuk/ui-kit/headless/select";
-import { createTagInput } from "@ku6epxboctuk/ui-kit/headless/tags";
-import { placePopover } from "@ku6epxboctuk/ui-kit/headless/popover";
+import { createSelect } from "@ku6epxboctuk/ui-kit/headless/select.svelte.ts";
+import { createTagInput } from "@ku6epxboctuk/ui-kit/headless/tags.svelte.ts";
+import { placePopover } from "@ku6epxboctuk/ui-kit/headless/popover.svelte.ts";
 ```
 
 `createSelect<T>(config)` owns `open`, `query`, `filtered`, `active` and
@@ -144,7 +144,7 @@ exposes `class`, `data-ui` and `data-*` attributes as the escape hatches. None
 of them import an icon or hold a user-facing string.
 
 ```svelte
-import Button from "@ku6epxboctuk/ui-kit/components/Button";
+import Button from "@ku6epxboctuk/ui-kit/components/Button.svelte";
 ```
 
 Component declarations ship next to the sources as

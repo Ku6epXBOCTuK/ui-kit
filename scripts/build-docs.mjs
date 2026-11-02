@@ -137,7 +137,7 @@ async function documentComponent(fileName, source) {
 		`## ${name}`,
 		"",
 		"```svelte",
-		`import ${name} from "@ku6epxboctuk/ui-kit/components/${name}";`,
+		`import ${name} from "@ku6epxboctuk/ui-kit/components/${name}.svelte";`,
 		"```",
 		"",
 	];
