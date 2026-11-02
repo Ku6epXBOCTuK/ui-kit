@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.9.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/deeb957e19149e20af0bb75707f407158d4eb176..0.9.0) - 2026-11-02
+#### Features
+- update components exports - ([0de1992](https://github.com/Ku6epXBOCTuK/ui-kit/commit/0de199262ba639c21457f52f068574c361a8477f)) - Ku6epXBOCTuK
+- add components types definitions - ([e96ba2c](https://github.com/Ku6epXBOCTuK/ui-kit/commit/e96ba2cb0beaad7b05d853c5775346d74d3a6d23)) - Ku6epXBOCTuK
+- update tag input component - ([deeb957](https://github.com/Ku6epXBOCTuK/ui-kit/commit/deeb957e19149e20af0bb75707f407158d4eb176)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.8.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/60d4e49d34567df36f818e5b2befa49889bb8850..0.8.0) - 2026-11-02
 #### Features
 - add ConfigmDialog and FileDrop - ([60d4e49](https://github.com/Ku6epXBOCTuK/ui-kit/commit/60d4e49d34567df36f818e5b2befa49889bb8850)) - Ku6epXBOCTuK
