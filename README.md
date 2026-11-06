@@ -111,9 +111,11 @@ import { placePopover } from "@ku6epxboctuk/ui-kit/headless/popover.svelte.ts";
 
 `createSelect<T>(config)` owns `open`, `query`, `filtered`, `active` and
 `activeIndex`, and returns
-`show hide toggle setQuery move moveTo pick pickActive handleKeydown`.
+`show hide toggle setQuery move moveTo pick pickActive typeahead handleKeydown`.
 `handleKeydown` returns whether it consumed the key, so the caller can fall
-through. Config: `items` and `getLabel` required, then `getKeywords`, `filter`,
+through. `typeahead(char)` activates the first label that starts with the letters
+typed within half a second; feed it printable keys when the list has no search
+input. Config: `items` and `getLabel` required, then `getKeywords`, `filter`,
 `onPick`, `closeOnPick` (default true), `onOpen`, `onClose`, `onQuery`, `wrap`
 (default true).
 
@@ -174,6 +176,11 @@ It publishes class hooks instead: `ui-select-trigger`,
 for the trigger, and `ui-select-option-mark`, `ui-select-option-label`,
 `ui-select-option-count` for the options. `TagInput` builds its trigger from
 those hooks.
+
+On open, `Select` moves focus into the list, or into the search input when
+`searchable` is set, and points `aria-activedescendant` at the active option, so
+a screen reader announces what the arrow keys land on. Closing puts focus back
+where it was unless the user clicked elsewhere.
 
 ## Scripts
 

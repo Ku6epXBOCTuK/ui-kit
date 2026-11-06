@@ -28,10 +28,14 @@ function clamp(index: number, length: number): number {
 	return ((index % length) + length) % length;
 }
 
+const TYPEAHEAD_WINDOW = 500;
+
 export function createSelect<T>(config: SelectConfig<T>) {
 	let open = $state(false);
 	let query = $state("");
 	let activeIndex = $state(0);
+	let typed = "";
+	let typedAt = 0;
 
 	const needle = $derived(query.trim().toLowerCase());
 
@@ -56,6 +60,8 @@ export function createSelect<T>(config: SelectConfig<T>) {
 		open = true;
 		query = "";
 		activeIndex = 0;
+		typed = "";
+		typedAt = 0;
 		config.onOpen?.();
 	}
 
@@ -65,6 +71,8 @@ export function createSelect<T>(config: SelectConfig<T>) {
 		if (!open) return;
 		open = false;
 		query = "";
+		typed = "";
+		typedAt = 0;
 		config.onClose?.();
 	}
 
@@ -93,6 +101,36 @@ export function createSelect<T>(config: SelectConfig<T>) {
 
 	function moveTo(index: number) {
 		activeIndex = index;
+	}
+
+	function typeahead(char: string): boolean {
+		if (!open || char.length !== 1 || filtered.length === 0) return false;
+
+		const now = Date.now();
+		typed = now - typedAt > TYPEAHEAD_WINDOW ? char : typed + char;
+		typedAt = now;
+
+		let needle = typed.toLowerCase();
+		let index = filtered.findIndex((item) =>
+			config.getLabel(item).toLowerCase().startsWith(needle),
+		);
+
+		if (index === -1 && typed.length > 1) {
+			typed = char;
+			needle = typed.toLowerCase();
+			index = filtered.findIndex((item) =>
+				config.getLabel(item).toLowerCase().startsWith(needle),
+			);
+		}
+
+		if (index === -1) {
+			typed = "";
+			typedAt = 0;
+			return false;
+		}
+
+		activeIndex = index;
+		return true;
 	}
 
 	function pick(item: T) {
@@ -165,6 +203,7 @@ export function createSelect<T>(config: SelectConfig<T>) {
 		moveTo,
 		pick,
 		pickActive,
+		typeahead,
 		handleKeydown,
 	};
 }

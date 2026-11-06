@@ -239,4 +239,62 @@ describe("createSelect", () => {
 
 		expect(onQuery).toHaveBeenCalledWith("so");
 	});
+
+	it("ignores typeahead while closed", () => {
+		const { select } = make();
+
+		expect(select.typeahead("s")).toBe(false);
+		expect(select.active?.id).toBe("LOG-1");
+	});
+
+	it("activates the first label that starts with the typed letter", () => {
+		const { select } = make();
+
+		select.show();
+
+		expect(select.typeahead("s")).toBe(true);
+		expect(select.active?.id).toBe("LOG-2");
+	});
+
+	it("extends the prefix across keystrokes", () => {
+		const { select } = make();
+
+		select.show();
+		select.typeahead("s");
+
+		expect(select.typeahead("o")).toBe(true);
+		expect(select.active?.id).toBe("LOG-3");
+	});
+
+	it("falls back to the last letter when the prefix stops matching", () => {
+		const { select } = make();
+
+		select.show();
+		expect(select.typeahead("м")).toBe(true);
+		expect(select.active?.id).toBe("LOG-1");
+
+		expect(select.typeahead("s")).toBe(true);
+		expect(select.active?.id).toBe("LOG-2");
+	});
+
+	it("reports an unmatched letter as unhandled and keeps the active item", () => {
+		const { select } = make();
+
+		select.show();
+		select.typeahead("s");
+
+		expect(select.typeahead("z")).toBe(false);
+		expect(select.active?.id).toBe("LOG-2");
+	});
+
+	it("starts a new prefix after reopening", () => {
+		const { select } = make();
+
+		select.show();
+		select.typeahead("s");
+		select.hide();
+		select.show();
+
+		expect(select.typeahead("o")).toBe(false);
+	});
 });

@@ -62,6 +62,25 @@
 	let root = $state<HTMLElement | null>(null);
 	let popover = $state<HTMLDivElement | null>(null);
 	let searchInput = $state<HTMLInputElement | null>(null);
+	let list = $state<HTMLDivElement | null>(null);
+	let focusBeforeOpen: HTMLElement | null = null;
+
+	const baseId = $props.id();
+	const resolvedListId = $derived(listId ?? `${baseId}-listbox`);
+	const activeOptionId = $derived(
+		select.open && select.activeIndex >= 0
+			? `${baseId}-option-${select.activeIndex}`
+			: undefined,
+	);
+
+	function isPrintable(event: KeyboardEvent): boolean {
+		return (
+			event.key.length === 1 &&
+			!event.ctrlKey &&
+			!event.metaKey &&
+			!event.altKey
+		);
+	}
 
 	function place() {
 		if (popover === null || root === null) return;
@@ -80,7 +99,10 @@
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
-		const handled = onkeydown?.(event) || select.handleKeydown(event);
+		const handled =
+			onkeydown?.(event) ||
+			select.handleKeydown(event) ||
+			(!searchable && isPrintable(event) && select.typeahead(event.key));
 		if (handled) event.preventDefault();
 	}
 
@@ -89,12 +111,30 @@
 
 		if (!select.open) {
 			if (popover.matches(":popover-open")) popover.hidePopover();
+			const current = document.activeElement;
+			if (
+				focusBeforeOpen !== null &&
+				(current === null ||
+					current === document.body ||
+					root?.contains(current))
+			) {
+				focusBeforeOpen.focus({ preventScroll: true });
+			}
+			focusBeforeOpen = null;
 			return;
+		}
+
+		if (focusBeforeOpen === null) {
+			focusBeforeOpen =
+				document.activeElement instanceof HTMLElement
+					? document.activeElement
+					: null;
 		}
 
 		if (!popover.matches(":popover-open")) popover.showPopover();
 		place();
-		searchInput?.focus();
+		if (searchable) searchInput?.focus({ preventScroll: true });
+		else list?.focus({ preventScroll: true });
 
 		window.addEventListener("resize", place);
 		window.addEventListener("scroll", place, true);
@@ -161,15 +201,23 @@
 					oninput={(event) => select.setQuery(event.currentTarget.value)}
 					placeholder={searchPlaceholder}
 					aria-label={searchPlaceholder}
+					role="combobox"
+					aria-expanded={select.open}
+					aria-controls={resolvedListId}
+					aria-autocomplete="list"
+					aria-activedescendant={activeOptionId}
 					autocomplete="off"
 				/>
 			{/if}
 			<div
 				class="ui-select-list"
-				id={listId}
+				id={resolvedListId}
+				bind:this={list}
 				role="listbox"
 				aria-label={listLabel}
 				aria-multiselectable={multiselect}
+				tabindex={searchable ? undefined : -1}
+				aria-activedescendant={searchable ? undefined : activeOptionId}
 			>
 				{#if select.filtered.length === 0}
 					<p class="ui-select-empty">{emptyLabel}</p>
@@ -177,6 +225,7 @@
 					{#each select.filtered as item, index (getKey(item))}
 						<button
 							type="button"
+							id={`${baseId}-option-${index}`}
 							role="option"
 							class="ui-select-option"
 							data-active={select.active === item}
