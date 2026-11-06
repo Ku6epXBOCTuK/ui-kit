@@ -148,9 +148,10 @@ import Button from "@ku6epxboctuk/ui-kit/components/Button.svelte";
 ```
 
 Component declarations ship next to the sources as
-`src/components/*.d.svelte.ts`, so `svelte-check --incremental` resolves a
-component import instead of reporting a missing module. A consumer types those
-imports with `"allowArbitraryExtensions": true` in its `tsconfig.json`.
+`src/components/*.svelte.d.ts`, and `exports` maps them through its `types`
+condition. A consumer needs no `paths`, no bundler alias and no extra tsconfig
+flag: the import resolves to the declaration for types and to the `.svelte`
+source for the bundler.
 
 Every component, with all of its props, types and defaults:
 [docs/reference/components.md](./docs/reference/components.md). The file is
@@ -181,7 +182,7 @@ those hooks.
   dark block only overrides names from its own light block, that no `hct()`
   reaches a shipped file, and that every `var(--ui-*)` in the package and the
   preview resolves.
-- `pnpm build:types` writes `src/components/*.d.svelte.ts` from the component
+- `pnpm build:types` writes `src/components/*.svelte.d.ts` from the component
   sources. Run it after changing a component's props.
 - `pnpm check:types` fails when the committed declarations are out of date.
 - `pnpm test` runs the headless specs in `src/**/*.spec.svelte.ts`.

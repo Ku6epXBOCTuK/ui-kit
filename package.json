@@ -24,7 +24,11 @@
 		"./tokens.css": "./tokens.css",
 		"./kawaii.css": "./tokens/kawaii.css",
 		"./headless/*.svelte.ts": "./src/headless/*.svelte.ts",
-		"./components/*.svelte": "./src/components/*.svelte",
+		"./components/*.svelte": {
+			"types": "./src/components/*.svelte.d.ts",
+			"svelte": "./src/components/*.svelte",
+			"default": "./src/components/*.svelte"
+		},
 		"./tokens/*": "./tokens/*"
 	},
 	"files": [

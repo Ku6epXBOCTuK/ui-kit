@@ -77,7 +77,7 @@ async function declarations() {
 	try {
 		await cp(path.join(root, "src"), input, {
 			recursive: true,
-			filter: (file) => !file.endsWith(".d.svelte.ts"),
+			filter: (file) => !file.endsWith(".svelte.d.ts"),
 		});
 		const tsconfig = JSON.parse(
 			await readFile(path.join(root, "tsconfig.json"), "utf8"),
@@ -94,7 +94,7 @@ async function declarations() {
 			.sort((a, b) => a.localeCompare(b, "en"));
 		for (const file of files) {
 			const name = path.basename(file, ".svelte");
-			const target = path.join(componentsDir, `${name}.d.svelte.ts`);
+			const target = path.join(componentsDir, `${name}.svelte.d.ts`);
 			const declaration = await readFile(
 				path.join(output, "components", `${name}.svelte.d.ts`),
 				"utf8",
@@ -102,7 +102,7 @@ async function declarations() {
 			if (declaration === null) throw new Error(`no declaration for ${file}`);
 			const note = `// NOTE: generated from src/components/${file} by \`pnpm build:types\`; do not edit.\n`;
 			const source = await format(note + deshadow(declaration, name), target);
-			result.set(`${name}.d.svelte.ts`, source);
+			result.set(`${name}.svelte.d.ts`, source);
 		}
 	} finally {
 		await rm(tmp, { recursive: true, force: true });
@@ -113,7 +113,7 @@ async function declarations() {
 const expected = await declarations();
 const current = new Set(
 	(await readdir(componentsDir)).filter((file) =>
-		file.endsWith(".d.svelte.ts"),
+		file.endsWith(".svelte.d.ts"),
 	),
 );
 
