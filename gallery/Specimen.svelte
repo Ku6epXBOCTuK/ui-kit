@@ -4,6 +4,7 @@
 	import Chip from "../src/components/Chip.svelte";
 	import ControlRow from "../src/components/ControlRow.svelte";
 	import Field from "../src/components/Field.svelte";
+	import FilterChips from "../src/components/FilterChips.svelte";
 	import IconButton from "../src/components/IconButton.svelte";
 	import Modal from "../src/components/Modal.svelte";
 	import Popover from "../src/components/Popover.svelte";
@@ -74,6 +75,7 @@
 	let chipTags = $state(["ui", "ux"]);
 	let toggled = $state(["open", "blocked"]);
 	let view = $state("grid");
+	let statusFilter = $state(["open"]);
 	const tagSuggestions = [
 		"bug",
 		"ui",
@@ -248,6 +250,22 @@
 	</ToggleChip>
 	<ToggleChip disabled>disabled</ToggleChip>
 	<ToggleChip active={true} disabled>pressed and disabled</ToggleChip>
+</div>
+
+<div class="row">
+	<span class="row-label"
+		>filter chips / all: {statusFilter.join(", ") || "none"}</span
+	>
+	<FilterChips
+		label="Task statuses"
+		allLabel="All"
+		bind:value={statusFilter}
+		options={[
+			{ value: "active", label: "Active" },
+			{ value: "backlog", label: "Backlog" },
+			{ value: "closed", label: "Closed" },
+		]}
+	/>
 </div>
 
 <div class="row">

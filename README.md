@@ -188,6 +188,11 @@ one tab stop, and arrows, Home and End select and move. `wide` stretches it,
 `disabled` blocks it, and the checked segment uses the same accent mix as an
 active `ToggleChip`.
 
+`FilterChips` is the multi-select counterpart: a `role=group` of `ToggleChip`s
+with `aria-pressed`, so several can be on at once. With `allLabel` it adds a
+select-all chip that shows pressed only when every option is selected, selects
+them all on a partial set and clears the set when everything is already on.
+
 ## Scripts
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run

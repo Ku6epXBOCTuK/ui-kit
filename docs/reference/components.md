@@ -132,6 +132,22 @@ import FileDrop from "@ku6epxboctuk/ui-kit/components/FileDrop.svelte";
 | `onpick`    | `(file: File) => void` |         | Called with the first accepted file; the input resets, so the same file can be picked again. |
 | `class?`    | `string`               | `""`    | Extra classes on the drop zone.                                                              |
 
+## FilterChips
+
+```svelte
+import FilterChips from "@ku6epxboctuk/ui-kit/components/FilterChips.svelte";
+```
+
+| Prop         | Type                        | Default | Description                                         |
+| ------------ | --------------------------- | ------- | --------------------------------------------------- |
+| `options`    | `Option[]`                  |         | Chips in display order.                             |
+| `bind:value` | `string[]`                  |         | Bindable selected values.                           |
+| `allLabel?`  | `string`                    |         | Label of the select-all chip; no chip when omitted. |
+| `label`      | `string`                    |         | Accessible name of the group.                       |
+| `disabled?`  | `boolean`                   | `false` | Disables every chip.                                |
+| `onchange?`  | `(value: string[]) => void` |         | Called with the new selection.                      |
+| `class?`     | `string`                    | `""`    | Extra classes on the group.                         |
+
 ## IconButton
 
 ```svelte
