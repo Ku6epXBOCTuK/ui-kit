@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.10.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/8e7fc37b249e306f9e18098ebe124a09833b55fc..0.10.0) - 2026-11-06
+#### Features
+- add info popover component - ([fb59495](https://github.com/Ku6epXBOCTuK/ui-kit/commit/fb594957d31d3628789696c2caf6a54ad7406960)) - Ku6epXBOCTuK
+- add gallery view - ([ab0227f](https://github.com/Ku6epXBOCTuK/ui-kit/commit/ab0227f93466dfd3832d4d233d2d6d58c847ba3f)) - Ku6epXBOCTuK
+- add filter chips - ([4233690](https://github.com/Ku6epXBOCTuK/ui-kit/commit/423369006effe0c1794ee8c346275ae4c4b35faf)) - Ku6epXBOCTuK
+- add segmented control - ([1736a43](https://github.com/Ku6epXBOCTuK/ui-kit/commit/1736a437c5cfb73dabdfe0ade7c6811cc75fbd12)) - Ku6epXBOCTuK
+#### Bug Fixes
+- add new design tokens for text\select\filedrop - ([508c716](https://github.com/Ku6epXBOCTuK/ui-kit/commit/508c71646ce9023f5c7be4b234561c3a366b3953)) - Ku6epXBOCTuK
+- upgrade select aria-activedescendant, focus - ([4bf0c09](https://github.com/Ku6epXBOCTuK/ui-kit/commit/4bf0c09e9bf9db1e3f584fea47d450d0bffd8b45)) - Ku6epXBOCTuK
+- add bind element for TextInput component - ([7b4b493](https://github.com/Ku6epXBOCTuK/ui-kit/commit/7b4b4930bd692da7858a496706f26e26ac4b8423)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.9.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/deeb957e19149e20af0bb75707f407158d4eb176..0.9.0) - 2026-11-02
 #### Features
 - update components exports - ([0de1992](https://github.com/Ku6epXBOCTuK/ui-kit/commit/0de199262ba639c21457f52f068574c361a8477f)) - Ku6epXBOCTuK
