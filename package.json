@@ -59,6 +59,7 @@
 		"test": "vitest run",
 		"gallery": "vite --config vite.config.gallery.ts",
 		"dev": "vite --config vite.config.gallery.ts --open",
+		"build:gallery": "vite build --config vite.config.gallery.ts",
 		"preview": "node scripts/preview.mjs",
 		"prepublishOnly": "pnpm check && pnpm test && pnpm build:themes && pnpm docs:check && pnpm check:types"
 	},

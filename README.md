@@ -5,6 +5,8 @@ components, extracted from three projects that each grew their own.
 
 Status: token layer is done. Headless and component layers are being built.
 
+Live gallery: https://ku6epxboctuk.is-a.dev/ui-kit/
+
 ## Layers
 
 | Import                            | What it is                                                   | CSS         |
@@ -211,7 +213,7 @@ areas.
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run
   it after editing the source.
-- `pnpm check:tokens` asserts that both themes define the same 66 names, that a
+- `pnpm check:tokens` asserts that both themes define the same 68 names, that a
   dark block only overrides names from its own light block, that no `hct()`
   reaches a shipped file, and that every `var(--ui-*)` in the package and the
   preview resolves.
@@ -223,6 +225,9 @@ areas.
   browser, with the four theme and mode combinations side by side plus a form
   page assembled only from the kit's components. `pnpm gallery` does the same
   without opening the browser.
+- `pnpm build:gallery` writes a static build of the gallery to `.gallery-dist`.
+  The `Deploy gallery` workflow publishes it to GitHub Pages on every push to
+  `main`.
 - `pnpm check` runs `svelte-check` against `tsconfig.json`.
 - `pnpm docs:build` regenerates `docs/reference/components.md` from the
   `interface Props` of every component. Prop descriptions come from the doc
