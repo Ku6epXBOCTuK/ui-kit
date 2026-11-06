@@ -211,6 +211,21 @@ import Notice from "@ku6epxboctuk/ui-kit/components/Notice.svelte";
 | `children` | `Snippet`                                                               |             | Notice text.                                                               |
 | `class?`   | `string`                                                                | `""`        | Extra classes on the container.                                            |
 
+## Panel
+
+```svelte
+import Panel from "@ku6epxboctuk/ui-kit/components/Panel.svelte";
+```
+
+| Prop           | Type      | Default | Description                                            |
+| -------------- | --------- | ------- | ------------------------------------------------------ |
+| `title?`       | `string`  |         | Heading above the body; no heading when omitted.       |
+| `description?` | `string`  |         | Helper text under the heading.                         |
+| `flush?`       | `boolean` | `false` | Removes the body padding, for tables and scroll areas. |
+| `children`     | `Snippet` |         | Panel body.                                            |
+| `footer?`      | `Snippet` |         | Actions under a divider, right-aligned.                |
+| `class?`       | `string`  | `""`    | Extra classes on the container.                        |
+
 ## Popover
 
 ```svelte

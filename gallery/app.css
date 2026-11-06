@@ -10,10 +10,23 @@ body {
 }
 
 .gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+	display: flex;
+	flex-direction: column;
 	gap: 16px;
 	padding: 16px;
+}
+
+.pair {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+	align-items: start;
+}
+
+@media (max-width: 880px) {
+	.pair {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
 .pane {

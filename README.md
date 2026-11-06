@@ -193,6 +193,11 @@ with `aria-pressed`, so several can be on at once. With `allLabel` it adds a
 select-all chip that shows pressed only when every option is selected, selects
 them all on a partial set and clears the set when everything is already on.
 
+`Panel` is the container for grouped controls: a title, an optional
+description, a body that stacks its children, and a footer separated by a line
+for the form actions. `flush` drops the body padding for tables and scroll
+areas.
+
 ## Scripts
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run
@@ -205,8 +210,10 @@ them all on a partial set and clears the set when everything is already on.
   sources. Run it after changing a component's props.
 - `pnpm check:types` fails when the committed declarations are out of date.
 - `pnpm test` runs the headless specs in `src/**/*.spec.svelte.ts`.
-- `pnpm gallery` serves the component gallery on port 4322 with the four theme
-  and mode combinations side by side.
+- `pnpm dev` serves the component gallery on port 4322 and opens it in the
+  browser, with the four theme and mode combinations side by side plus a form
+  page assembled only from the kit's components. `pnpm gallery` does the same
+  without opening the browser.
 - `pnpm check` runs `svelte-check` against `tsconfig.json`.
 - `pnpm docs:build` regenerates `docs/reference/components.md` from the
   `interface Props` of every component. Prop descriptions come from the doc

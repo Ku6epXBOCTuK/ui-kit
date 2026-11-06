@@ -58,6 +58,7 @@
 		"format:check": "biome format .",
 		"test": "vitest run",
 		"gallery": "vite --config vite.config.gallery.ts",
+		"dev": "vite --config vite.config.gallery.ts --open",
 		"preview": "node scripts/preview.mjs",
 		"prepublishOnly": "pnpm check && pnpm test && pnpm build:themes && pnpm docs:check && pnpm check:types"
 	},
