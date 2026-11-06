@@ -373,11 +373,12 @@ import TextArea from "@ku6epxboctuk/ui-kit/components/TextArea.svelte";
 
 Extends `Omit<HTMLTextareaAttributes, "value">`; those attributes and event handlers pass through.
 
-| Prop         | Type      | Default | Description                 |
-| ------------ | --------- | ------- | --------------------------- |
-| `bind:value` | `string`  |         | Bindable text.              |
-| `invalid?`   | `boolean` | `false` | Marks the textarea invalid. |
-| `mono?`      | `boolean` | `false` | Uses the monospace face.    |
+| Prop           | Type                  | Default | Description                       |
+| -------------- | --------------------- | ------- | --------------------------------- |
+| `bind:value`   | `string`              |         | Bindable text.                    |
+| `invalid?`     | `boolean`             | `false` | Marks the textarea invalid.       |
+| `mono?`        | `boolean`             | `false` | Uses the monospace face.          |
+| `bind:element` | `HTMLTextAreaElement` |         | Bindable native textarea element. |
 
 ## TextInput
 

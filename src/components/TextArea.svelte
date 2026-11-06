@@ -8,6 +8,8 @@
 		invalid?: boolean;
 		/** Uses the monospace face. */
 		mono?: boolean;
+		/** Bindable native textarea element. */
+		element?: HTMLTextAreaElement;
 	}
 
 	let {
@@ -15,12 +17,14 @@
 		invalid = false,
 		mono = false,
 		class: className = "",
+		element = $bindable(),
 		...rest
 	}: Props = $props();
 </script>
 
 <textarea
 	{...rest}
+	bind:this={element}
 	bind:value
 	aria-invalid={invalid || undefined}
 	data-ui="textarea"

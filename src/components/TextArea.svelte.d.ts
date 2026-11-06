@@ -7,7 +7,13 @@ interface Props extends Omit<HTMLTextareaAttributes, "value"> {
 	invalid?: boolean;
 	/** Uses the monospace face. */
 	mono?: boolean;
+	/** Bindable native textarea element. */
+	element?: HTMLTextAreaElement;
 }
-declare const TextArea: import("svelte").Component<Props, {}, "value">;
+declare const TextArea: import("svelte").Component<
+	Props,
+	{},
+	"element" | "value"
+>;
 type TextArea = ReturnType<typeof TextArea>;
 export default TextArea;
