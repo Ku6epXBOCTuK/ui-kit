@@ -12,6 +12,8 @@
 		invalid?: boolean;
 		/** Uses the monospace face. */
 		mono?: boolean;
+		/** Bindable native input element. */
+		element?: HTMLInputElement;
 	}
 
 	let {
@@ -21,12 +23,14 @@
 		mono = false,
 		type = "text",
 		class: className = "",
+		element = $bindable(),
 		...rest
 	}: Props = $props();
 </script>
 
 <input
 	{...rest}
+	bind:this={element}
 	{type}
 	bind:value
 	aria-invalid={invalid || undefined}

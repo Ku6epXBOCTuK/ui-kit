@@ -10,7 +10,13 @@ interface Props extends Omit<HTMLInputAttributes, "size" | "value"> {
 	invalid?: boolean;
 	/** Uses the monospace face. */
 	mono?: boolean;
+	/** Bindable native input element. */
+	element?: HTMLInputElement;
 }
-declare const TextInput: import("svelte").Component<Props, {}, "value">;
+declare const TextInput: import("svelte").Component<
+	Props,
+	{},
+	"element" | "value"
+>;
 type TextInput = ReturnType<typeof TextInput>;
 export default TextInput;

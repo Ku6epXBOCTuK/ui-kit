@@ -321,12 +321,13 @@ import TextInput from "@ku6epxboctuk/ui-kit/components/TextInput.svelte";
 
 Extends `Omit<HTMLInputAttributes, "size" | "value">`; those attributes and event handlers pass through.
 
-| Prop         | Type                   | Default | Description                        |
-| ------------ | ---------------------- | ------- | ---------------------------------- |
-| `bind:value` | `string`               |         | Bindable text.                     |
-| `size?`      | `"sm" \| "md" \| "lg"` | `"md"`  | sm, md or lg height and text step. |
-| `invalid?`   | `boolean`              | `false` | Marks the input invalid.           |
-| `mono?`      | `boolean`              | `false` | Uses the monospace face.           |
+| Prop           | Type                   | Default | Description                        |
+| -------------- | ---------------------- | ------- | ---------------------------------- |
+| `bind:value`   | `string`               |         | Bindable text.                     |
+| `size?`        | `"sm" \| "md" \| "lg"` | `"md"`  | sm, md or lg height and text step. |
+| `invalid?`     | `boolean`              | `false` | Marks the input invalid.           |
+| `mono?`        | `boolean`              | `false` | Uses the monospace face.           |
+| `bind:element` | `HTMLInputElement`     |         | Bindable native input element.     |
 
 ## ToggleChip
 
