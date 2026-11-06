@@ -171,6 +171,11 @@ at the screen edge. It shows itself only after placing, which is what keeps the
 first frame correct. It owns the top layer, outside-click dismissal and Escape;
 the trigger stays in the caller, because the trigger is the caller's markup.
 
+`InfoPopover` is a hint on a small trigger. A mouse opens it on hover and leaves
+close it; a tap pins it, and a second tap, a click outside or Escape closes it.
+With a custom `trigger` snippet, the snippet owns the click and calls `toggle`;
+the kit cannot guess which part of your markup is the tap target.
+
 They extend the matching `HTMLButtonAttributes` / `HTMLInputAttributes`, so
 `disabled`, `type`, `name`, `aria-*` and event handlers pass straight through.
 

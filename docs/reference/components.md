@@ -166,6 +166,25 @@ Extends `HTMLButtonAttributes`; those attributes and event handlers pass through
 | `children`     | `Snippet`                            |           | Icon markup; the label prop carries the text.                                   |
 | `bind:element` | `HTMLButtonElement`                  |           | Bindable native button element.                                                 |
 
+## InfoPopover
+
+```svelte
+import InfoPopover from "@ku6epxboctuk/ui-kit/components/InfoPopover.svelte";
+```
+
+| Prop        | Type                          | Default | Description                                                                        |
+| ----------- | ----------------------------- | ------- | ---------------------------------------------------------------------------------- |
+| `text?`     | `string`                      | `""`    | Panel text when no content snippet is given.                                       |
+| `content?`  | `Snippet`                     |         | Panel body; wins over text.                                                        |
+| `icon?`     | `Snippet`                     |         | Icon before the default trigger content.                                           |
+| `children?` | `Snippet`                     |         | Default trigger content.                                                           |
+| `trigger?`  | `Snippet<[TriggerState]>`     |         | Replaces the default button; call toggle from the trigger's click.                 |
+| `label?`    | `string`                      |         | Accessible name of the default trigger; falls back to text.                        |
+| `class?`    | `string`                      | `""`    | Extra classes on the default trigger.                                              |
+| `style?`    | `string`                      | `""`    | Inline style on the default trigger.                                               |
+| `onclick?`  | `(event: MouseEvent) => void` |         | Makes the trigger an action: the click calls it and the panel opens only on hover. |
+| `hover?`    | `boolean`                     | `true`  | Opens the panel on hover with a mouse; touch and pen open it on tap only.          |
+
 ## Label
 
 ```svelte

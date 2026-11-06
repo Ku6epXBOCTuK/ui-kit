@@ -6,6 +6,7 @@
 	import Field from "../src/components/Field.svelte";
 	import FilterChips from "../src/components/FilterChips.svelte";
 	import IconButton from "../src/components/IconButton.svelte";
+	import InfoPopover from "../src/components/InfoPopover.svelte";
 	import Modal from "../src/components/Modal.svelte";
 	import Popover from "../src/components/Popover.svelte";
 	import ScrollArea from "../src/components/ScrollArea.svelte";
@@ -473,6 +474,38 @@
 			<Button variant="ghost">JPG</Button>
 			<Button variant="ghost">WebP</Button>
 		</Popover>
+	</div>
+</div>
+
+<div class="row">
+	<span class="row-label">info popover / hover or tap</span>
+	<div class="block">
+		<InfoPopover
+			text="Hover opens this with a mouse; a tap pins it. A second tap, a click outside or Escape closes it."
+		>
+			?
+		</InfoPopover>
+		<InfoPopover label="Tag input shortcuts">
+			{#snippet icon()}
+				<span aria-hidden="true">i</span>
+			{/snippet}
+			{#snippet content()}
+				<span>
+					<code>Enter</code>
+					adds the highlighted tag. <code>Escape</code> closes this panel.
+				</span>
+			{/snippet}
+		</InfoPopover>
+		<InfoPopover label="Custom trigger">
+			{#snippet trigger({ open, toggle })}
+				<Button size="sm" variant="ghost" aria-expanded={open} onclick={toggle}>
+					Details
+				</Button>
+			{/snippet}
+			{#snippet content()}
+				<span>The trigger is caller markup, so it calls toggle itself.</span>
+			{/snippet}
+		</InfoPopover>
 	</div>
 </div>
 
