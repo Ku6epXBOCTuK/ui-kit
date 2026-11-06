@@ -26,6 +26,8 @@
 		--ui-line: oklch(0.85 0.04 60);
 		--ui-line-strong: oklch(0.52 0.09 35);
 		--ui-line-w: 1px;
+		--ui-field-line: var(--ui-line-strong);
+		--ui-field-line-w: 1px;
 		--ui-focus-ring-w: 2px;
 		--ui-focus-ring-offset: 2px;
 		--ui-focus-room: calc(

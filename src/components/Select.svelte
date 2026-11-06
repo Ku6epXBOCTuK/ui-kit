@@ -342,7 +342,7 @@
 
 	.ui-select[data-variant="field"] :global(.ui-select-trigger) {
 		padding: 0 var(--ui-space-3);
-		border-color: var(--ui-line);
+		border: var(--ui-field-line-w) solid var(--ui-field-line);
 		background: var(--ui-field);
 		color: var(--ui-fg);
 		font-weight: 400;

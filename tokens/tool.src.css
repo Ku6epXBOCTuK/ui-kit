@@ -27,6 +27,8 @@
 		--ui-line: hct(from var(--ui-brand-seed) h 13.1 69.4);
 		--ui-line-strong: hct(from var(--ui-brand-seed) h 18 44);
 		--ui-line-w: 2px;
+		--ui-field-line: var(--ui-line-strong);
+		--ui-field-line-w: 1px;
 		--ui-focus-ring-w: 2px;
 		--ui-focus-ring-offset: 2px;
 		--ui-focus-room: calc(

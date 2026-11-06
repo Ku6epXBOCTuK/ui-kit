@@ -48,7 +48,7 @@
 		min-width: 0;
 		height: var(--ui-control-h-md);
 		padding: 0 var(--ui-space-3);
-		border: var(--ui-line-w) solid var(--ui-line);
+		border: var(--ui-field-line-w) solid var(--ui-field-line);
 		border-radius: var(--ui-r-control);
 		background: var(--ui-field);
 		color: var(--ui-fg);
@@ -81,7 +81,7 @@
 	}
 
 	.ui-input:hover:not(:disabled):not(:focus) {
-		border-color: var(--ui-line-strong);
+		background: var(--ui-hover);
 	}
 
 	.ui-input:focus-visible {

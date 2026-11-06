@@ -25,6 +25,8 @@
 		--ui-line: #9dae9f;
 		--ui-line-strong: #566e5c;
 		--ui-line-w: 2px;
+		--ui-field-line: var(--ui-line-strong);
+		--ui-field-line-w: 1px;
 		--ui-focus-ring-w: 2px;
 		--ui-focus-ring-offset: 2px;
 		--ui-focus-room: calc(

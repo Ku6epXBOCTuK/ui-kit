@@ -98,7 +98,7 @@
 		justify-content: center;
 		min-height: 4.5rem;
 		padding: var(--ui-space-4) var(--ui-space-3);
-		border: 1px dashed var(--ui-line-strong);
+		border: var(--ui-field-line-w) dashed var(--ui-field-line);
 		border-radius: var(--ui-r-control);
 		background: var(--ui-field);
 		color: var(--ui-fg-muted);

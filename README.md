@@ -20,7 +20,7 @@ active.
 
 ## Tokens
 
-66 custom properties, all prefixed `--ui-`, in six groups.
+68 custom properties, all prefixed `--ui-`, in six groups.
 
 Surfaces:
 `--ui-bg --ui-bg-muted --ui-surface --ui-panel --ui-field --ui-hover --ui-selected --ui-backdrop`
@@ -29,11 +29,15 @@ Text:
 `--ui-fg --ui-fg-secondary --ui-fg-muted --ui-on-accent --ui-on-danger --ui-on-intent`
 
 Lines:
-`--ui-line --ui-line-strong --ui-line-w --ui-focus-ring-w --ui-focus-ring-offset --ui-focus-room`
+`--ui-line --ui-line-strong --ui-line-w --ui-field-line --ui-field-line-w --ui-focus-ring-w --ui-focus-ring-offset --ui-focus-room`
 
 `--ui-focus-room` is the space a focus ring needs outside a control: the ring
 width, the offset and one pixel against subpixel rounding. It is always derived
 from the other two, never set by hand.
+
+`--ui-field-line` and `--ui-field-line-w` are the frame of an input, textarea or
+field select. They stay one pixel of the strong line, so a field reads as a field
+in both themes regardless of the theme-wide line weight.
 
 A control's focus ring is drawn outside its box, so a scroll container clips it
 unless the container keeps that room. Use `ScrollArea` for every overflow
