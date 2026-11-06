@@ -34,6 +34,7 @@
 	"files": [
 		"tokens.css",
 		"tokens/",
+		"docs/",
 		"!tokens/tool.src.css",
 		"src/",
 		"!src/**/*.spec.*"

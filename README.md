@@ -154,7 +154,8 @@ flag: the import resolves to the declaration for types and to the `.svelte`
 source for the bundler.
 
 Every component, with all of its props, types and defaults:
-[docs/reference/components.md](./docs/reference/components.md). The file is
+[docs/reference/components.md](https://github.com/Ku6epXBOCTuK/ui-kit/blob/main/docs/reference/components.md).
+The file is
 generated from `interface Props`, so it cannot drift from the code. A sentence
 above a prop in the interface becomes that prop's description.
 
@@ -225,7 +226,8 @@ app reads the `tool` tokens directly, and `pnpm check:tokens` guards the names.
 ## Census
 
 Which components the four projects actually share, how often each is used, and
-what belongs in the kit next: [docs/census.md](./docs/census.md).
+what belongs in the kit next:
+[docs/census.md](https://github.com/Ku6epXBOCTuK/ui-kit/blob/main/docs/census.md).
 
 ## License
 
