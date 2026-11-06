@@ -48,14 +48,18 @@
 			aria-label={openLabel}
 			onclick={onopen}
 		>
-			{#if children}{@render children()}{/if}
+			{#if children}
+				{@render children()}
+			{/if}
 		</button>
 	{:else}
 		<span
 			class="ui-chip-label"
 			aria-disabled={unavailable ? "true" : undefined}
 		>
-			{#if children}{@render children()}{/if}
+			{#if children}
+				{@render children()}
+			{/if}
 		</span>
 	{/if}
 	{#if onremove}

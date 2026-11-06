@@ -1,8 +1,8 @@
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import * as prettier from "prettier";
 import ts from "typescript";
+import { format } from "./format.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const componentsDir = path.join(root, "src", "components");
@@ -178,8 +178,7 @@ async function build() {
 		"",
 		...sections,
 	].join("\n");
-	const config = (await prettier.resolveConfig(outputFile)) ?? {};
-	return prettier.format(raw, { ...config, parser: "markdown" });
+	return format(raw, outputFile);
 }
 
 const result = await build();

@@ -1,9 +1,0 @@
-node_modules
-build
-.svelte-kit
-dist
-pnpm-lock.yaml
-static
-*.log
-.DS_Store
-CHANGELOG.md

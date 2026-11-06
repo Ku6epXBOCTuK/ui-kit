@@ -25,7 +25,8 @@
 	aria-invalid={invalid || undefined}
 	data-ui="textarea"
 	data-mono={mono || undefined}
-	class="ui-textarea {className}"></textarea>
+	class="ui-textarea {className}"
+></textarea>
 
 <style>
 	.ui-textarea {

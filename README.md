@@ -68,11 +68,11 @@ outranks both kit blocks. Override per mode instead:
 ```css
 :root,
 :root[data-ui-mode="light"] {
-  --ui-accent: #ff7868;
+	--ui-accent: #ff7868;
 }
 
 :root[data-ui-mode="dark"] {
-  --ui-accent: #ff7868;
+	--ui-accent: #ff7868;
 }
 ```
 

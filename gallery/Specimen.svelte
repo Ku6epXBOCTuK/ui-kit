@@ -157,7 +157,9 @@
 
 {#snippet markOption(status: string)}
 	<span class="ui-select-option-mark" aria-hidden="true">
-		{#if picked.includes(status)}✓{/if}
+		{#if picked.includes(status)}
+			✓
+		{/if}
 	</span>
 	<span class="ui-select-option-label">{status}</span>
 {/snippet}

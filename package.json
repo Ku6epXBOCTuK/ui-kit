@@ -49,7 +49,8 @@
 		"docs:build": "node scripts/build-docs.mjs",
 		"docs:check": "node scripts/build-docs.mjs --check",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"format": "prettier --write . --log-level=warn",
+		"format": "biome format --write .",
+		"format:check": "biome format .",
 		"test": "vitest run",
 		"gallery": "vite --config vite.config.gallery.ts",
 		"preview": "node scripts/preview.mjs",
@@ -59,6 +60,7 @@
 		"svelte": "^5.57.0"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "2.6.5",
 		"@fontsource/comfortaa": "^5.3.0",
 		"@fontsource/ibm-plex-mono": "^5.3.0",
 		"@fontsource/ibm-plex-sans": "^5.3.0",
@@ -67,8 +69,6 @@
 		"@sveltejs/package": "^3.0.2",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"postcss": "^8.5.26",
-		"prettier": "^3.9.10",
-		"prettier-plugin-svelte": "^4.1.1",
 		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.7",
 		"typescript": "^6.0.3",

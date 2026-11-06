@@ -10,7 +10,7 @@ import {
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import * as prettier from "prettier";
+import { format } from "./format.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const componentsDir = path.join(root, "src", "components");
@@ -92,21 +92,16 @@ async function declarations() {
 		const files = (await readdir(componentsDir))
 			.filter((file) => file.endsWith(".svelte"))
 			.sort((a, b) => a.localeCompare(b, "en"));
-		const config =
-			(await prettier.resolveConfig(path.join(componentsDir, "TYPES.d.ts"))) ??
-			{};
 		for (const file of files) {
 			const name = path.basename(file, ".svelte");
+			const target = path.join(componentsDir, `${name}.d.svelte.ts`);
 			const declaration = await readFile(
 				path.join(output, "components", `${name}.svelte.d.ts`),
 				"utf8",
 			).catch(() => null);
 			if (declaration === null) throw new Error(`no declaration for ${file}`);
 			const note = `// NOTE: generated from src/components/${file} by \`pnpm build:types\`; do not edit.\n`;
-			const source = await prettier.format(note + deshadow(declaration, name), {
-				...config,
-				parser: "typescript",
-			});
+			const source = await format(note + deshadow(declaration, name), target);
 			result.set(`${name}.d.svelte.ts`, source);
 		}
 	} finally {

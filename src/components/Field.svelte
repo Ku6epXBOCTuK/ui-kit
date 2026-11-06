@@ -44,8 +44,9 @@
 	{#if label}
 		<label class="ui-field-label" for={controlId}>
 			{label}
-			{#if required}<span class="ui-field-required" aria-hidden="true">*</span
-				>{/if}
+			{#if required}
+				<span class="ui-field-required" aria-hidden="true">*</span>
+			{/if}
 		</label>
 	{/if}
 	{@render children(controlId)}

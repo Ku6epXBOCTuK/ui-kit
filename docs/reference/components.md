@@ -1,7 +1,6 @@
 # Component props
 
-Generated from `interface Props` in `src/components` by `pnpm docs:build`. Do
-not edit by hand: rerun the command instead.
+Generated from `interface Props` in `src/components` by `pnpm docs:build`. Do not edit by hand: rerun the command instead.
 
 A prop shown as `bind:name` is bindable; `?` marks an optional prop.
 
@@ -27,8 +26,7 @@ import Badge from "@ku6epxboctuk/ui-kit/components/Badge.svelte";
 import Button from "@ku6epxboctuk/ui-kit/components/Button.svelte";
 ```
 
-Extends `HTMLButtonAttributes`; those attributes and event handlers pass
-through.
+Extends `HTMLButtonAttributes`; those attributes and event handlers pass through.
 
 | Prop           | Type                                              | Default       | Description                                                                                                   |
 | -------------- | ------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -46,8 +44,7 @@ through.
 import Checkbox from "@ku6epxboctuk/ui-kit/components/Checkbox.svelte";
 ```
 
-Extends `Omit<HTMLInputAttributes, "type" | "value" | "checked">`; those
-attributes and event handlers pass through.
+Extends `Omit<HTMLInputAttributes, "type" | "value" | "checked">`; those attributes and event handlers pass through.
 
 | Prop           | Type      | Default | Description             |
 | -------------- | --------- | ------- | ----------------------- |
@@ -141,8 +138,7 @@ import FileDrop from "@ku6epxboctuk/ui-kit/components/FileDrop.svelte";
 import IconButton from "@ku6epxboctuk/ui-kit/components/IconButton.svelte";
 ```
 
-Extends `HTMLButtonAttributes`; those attributes and event handlers pass
-through.
+Extends `HTMLButtonAttributes`; those attributes and event handlers pass through.
 
 | Prop           | Type                                 | Default   | Description                                                                     |
 | -------------- | ------------------------------------ | --------- | ------------------------------------------------------------------------------- |
@@ -228,8 +224,7 @@ import Popover from "@ku6epxboctuk/ui-kit/components/Popover.svelte";
 import ScrollArea from "@ku6epxboctuk/ui-kit/components/ScrollArea.svelte";
 ```
 
-Extends `HTMLAttributes<HTMLDivElement>`; those attributes and event handlers
-pass through.
+Extends `HTMLAttributes<HTMLDivElement>`; those attributes and event handlers pass through.
 
 | Prop        | Type                   | Default | Description                           |
 | ----------- | ---------------------- | ------- | ------------------------------------- |
@@ -310,8 +305,7 @@ import TagInput from "@ku6epxboctuk/ui-kit/components/TagInput.svelte";
 import TextArea from "@ku6epxboctuk/ui-kit/components/TextArea.svelte";
 ```
 
-Extends `Omit<HTMLTextareaAttributes, "value">`; those attributes and event
-handlers pass through.
+Extends `Omit<HTMLTextareaAttributes, "value">`; those attributes and event handlers pass through.
 
 | Prop         | Type      | Default | Description                 |
 | ------------ | --------- | ------- | --------------------------- |
@@ -325,8 +319,7 @@ handlers pass through.
 import TextInput from "@ku6epxboctuk/ui-kit/components/TextInput.svelte";
 ```
 
-Extends `Omit<HTMLInputAttributes, "size" | "value">`; those attributes and
-event handlers pass through.
+Extends `Omit<HTMLInputAttributes, "size" | "value">`; those attributes and event handlers pass through.
 
 | Prop         | Type                   | Default | Description                        |
 | ------------ | ---------------------- | ------- | ---------------------------------- |
@@ -341,8 +334,7 @@ event handlers pass through.
 import ToggleChip from "@ku6epxboctuk/ui-kit/components/ToggleChip.svelte";
 ```
 
-Extends `HTMLButtonAttributes`; those attributes and event handlers pass
-through.
+Extends `HTMLButtonAttributes`; those attributes and event handlers pass through.
 
 | Prop           | Type                | Default | Description                                            |
 | -------------- | ------------------- | ------- | ------------------------------------------------------ |

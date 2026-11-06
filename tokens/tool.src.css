@@ -30,7 +30,9 @@
 		--ui-focus-ring-w: 2px;
 		--ui-focus-ring-offset: 2px;
 		--ui-focus-room: calc(
-			var(--ui-focus-ring-w) + var(--ui-focus-ring-offset) + 1px
+			var(--ui-focus-ring-w) +
+			var(--ui-focus-ring-offset) +
+			1px
 		);
 
 		--ui-accent: hct(from var(--ui-brand-seed) h 80 48);

@@ -43,8 +43,12 @@
 		? `--badge-tone: ${color}; --badge-surface: color-mix(in oklch, ${color} 16%, transparent);`
 		: undefined}
 >
-	{#if dot}<span class="ui-badge-dot" aria-hidden="true"></span>{/if}
-	{#if children}{@render children()}{/if}
+	{#if dot}
+		<span class="ui-badge-dot" aria-hidden="true"></span>
+	{/if}
+	{#if children}
+		{@render children()}
+	{/if}
 </span>
 
 <style>
