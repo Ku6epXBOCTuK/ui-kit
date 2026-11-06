@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.10.1](https://github.com/Ku6epXBOCTuK/ui-kit/compare/8ebfc8a44430a3ef915ab35d191ccc0efd88c735..0.10.1) - 2026-11-06
+#### Bug Fixes
+- add bindable element for TextArea component - ([8ebfc8a](https://github.com/Ku6epXBOCTuK/ui-kit/commit/8ebfc8a44430a3ef915ab35d191ccc0efd88c735)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.10.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/8e7fc37b249e306f9e18098ebe124a09833b55fc..0.10.0) - 2026-11-06
 #### Features
 - add info popover component - ([fb59495](https://github.com/Ku6epXBOCTuK/ui-kit/commit/fb594957d31d3628789696c2caf6a54ad7406960)) - Ku6epXBOCTuK
