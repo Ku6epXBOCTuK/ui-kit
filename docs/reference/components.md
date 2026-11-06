@@ -246,6 +246,22 @@ import SectionTitle from "@ku6epxboctuk/ui-kit/components/SectionTitle.svelte";
 | `children` | `Snippet`                                      |           | Title text.                                                                |
 | `class?`   | `string`                                       | `""`      | Extra classes on the heading.                                              |
 
+## Segmented
+
+```svelte
+import Segmented from "@ku6epxboctuk/ui-kit/components/Segmented.svelte";
+```
+
+| Prop         | Type                      | Default | Description                                  |
+| ------------ | ------------------------- | ------- | -------------------------------------------- |
+| `options`    | `Option[]`                |         | Segments in display order.                   |
+| `bind:value` | `string`                  |         | Bindable value of the selected segment.      |
+| `wide?`      | `boolean`                 | `false` | Stretches the group to the container width.  |
+| `disabled?`  | `boolean`                 | `false` | Disables every segment.                      |
+| `label`      | `string`                  |         | Accessible name of the radio group.          |
+| `onchange?`  | `(value: string) => void` |         | Called with the value of the picked segment. |
+| `class?`     | `string`                  | `""`    | Extra classes on the group.                  |
+
 ## Select
 
 ```svelte

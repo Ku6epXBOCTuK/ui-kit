@@ -8,6 +8,7 @@
 	import Modal from "../src/components/Modal.svelte";
 	import Popover from "../src/components/Popover.svelte";
 	import ScrollArea from "../src/components/ScrollArea.svelte";
+	import Segmented from "../src/components/Segmented.svelte";
 	import Select from "../src/components/Select.svelte";
 	import TagInput from "../src/components/TagInput.svelte";
 	import TextInput from "../src/components/TextInput.svelte";
@@ -72,6 +73,7 @@
 	let openedChip = $state("none");
 	let chipTags = $state(["ui", "ux"]);
 	let toggled = $state(["open", "blocked"]);
+	let view = $state("grid");
 	const tagSuggestions = [
 		"bug",
 		"ui",
@@ -246,6 +248,44 @@
 	</ToggleChip>
 	<ToggleChip disabled>disabled</ToggleChip>
 	<ToggleChip active={true} disabled>pressed and disabled</ToggleChip>
+</div>
+
+<div class="row">
+	<span class="row-label">segmented / single choice: {view}</span>
+	<Segmented
+		label="View"
+		bind:value={view}
+		options={[
+			{ value: "grid", label: "Grid" },
+			{ value: "list", label: "List" },
+			{ value: "table", label: "Table" },
+		]}
+	/>
+	<Segmented
+		label="Disabled range"
+		disabled
+		value="week"
+		options={[
+			{ value: "day", label: "Day" },
+			{ value: "week", label: "Week" },
+		]}
+	/>
+</div>
+
+<div class="row">
+	<span class="row-label">segmented / wide</span>
+	<div class="block">
+		<Segmented
+			label="Range"
+			wide
+			value="week"
+			options={[
+				{ value: "day", label: "Day" },
+				{ value: "week", label: "Week" },
+				{ value: "month", label: "Month" },
+			]}
+		/>
+	</div>
 </div>
 
 <div class="row">

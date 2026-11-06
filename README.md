@@ -182,6 +182,12 @@ On open, `Select` moves focus into the list, or into the search input when
 a screen reader announces what the arrow keys land on. Closing puts focus back
 where it was unless the user clicked elsewhere.
 
+`Segmented` is a single-choice control, not a row of independent toggles:
+`role=radiogroup` on the group, `role=radio` and `aria-checked` on the segments,
+one tab stop, and arrows, Home and End select and move. `wide` stretches it,
+`disabled` blocks it, and the checked segment uses the same accent mix as an
+active `ToggleChip`.
+
 ## Scripts
 
 - `pnpm build:themes` writes `tokens/tool.css` from `tokens/tool.src.css`. Run
