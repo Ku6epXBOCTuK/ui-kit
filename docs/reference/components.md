@@ -102,6 +102,18 @@ import ControlRow from "@ku6epxboctuk/ui-kit/components/ControlRow.svelte";
 | `end?`      | `Snippet`                      |                       | Snippet pinned to the right.                   |
 | `class?`    | `string`                       | `""`                  | Extra classes on the row.                      |
 
+## EmptyState
+
+```svelte
+import EmptyState from "@ku6epxboctuk/ui-kit/components/EmptyState.svelte";
+```
+
+| Prop       | Type      | Default | Description                                                |
+| ---------- | --------- | ------- | ---------------------------------------------------------- |
+| `children` | `Snippet` |         | Message explaining why the area is empty.                  |
+| `action?`  | `Snippet` |         | Optional action rendered under the message, e.g. a button. |
+| `class?`   | `string`  | `""`    | Extra classes on the container.                            |
+
 ## Field
 
 ```svelte
