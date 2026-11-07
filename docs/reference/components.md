@@ -210,6 +210,18 @@ import Label from "@ku6epxboctuk/ui-kit/components/Label.svelte";
 | `children` | `Snippet`                                        |           | Label text.                                                       |
 | `class?`   | `string`                                         | `""`      | Extra classes on the span.                                        |
 
+## List
+
+```svelte
+import List from "@ku6epxboctuk/ui-kit/components/List.svelte";
+```
+
+| Prop       | Type      | Default | Description                                                          |
+| ---------- | --------- | ------- | -------------------------------------------------------------------- |
+| `plain?`   | `boolean` | `false` | Drops the box and the dividers, for rows that bring their own frame. |
+| `children` | `Snippet` |         | `li` rows.                                                           |
+| `class?`   | `string`  | `""`    | Extra classes on the list.                                           |
+
 ## Modal
 
 ```svelte
