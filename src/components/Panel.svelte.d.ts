@@ -5,6 +5,8 @@ interface Props {
 	title?: string;
 	/** Helper text under the heading. */
 	description?: string;
+	/** Custom head content laid out as a toolbar row with a divider; replaces title and description. */
+	head?: Snippet;
 	/** Removes the body padding, for tables and scroll areas. */
 	flush?: boolean;
 	/** Panel body. */

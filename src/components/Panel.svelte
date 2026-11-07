@@ -7,6 +7,8 @@
 		title?: string;
 		/** Helper text under the heading. */
 		description?: string;
+		/** Custom head content laid out as a toolbar row with a divider; replaces title and description. */
+		head?: Snippet;
 		/** Removes the body padding, for tables and scroll areas. */
 		flush?: boolean;
 		/** Panel body. */
@@ -20,6 +22,7 @@
 	let {
 		title,
 		description,
+		head,
 		flush = false,
 		children,
 		footer,
@@ -32,7 +35,11 @@
 	data-ui="panel"
 	data-flush={flush || undefined}
 >
-	{#if title || description}
+	{#if head}
+		<header class="ui-panel-head ui-panel-head-bar">
+			{@render head()}
+		</header>
+	{:else if title || description}
 		<header class="ui-panel-head">
 			{#if title}
 				<SectionTitle level={3}>{title}</SectionTitle>
@@ -68,6 +75,14 @@
 		flex-direction: column;
 		gap: var(--ui-space-1);
 		padding: var(--ui-space-4) var(--ui-space-4) var(--ui-space-3);
+	}
+
+	.ui-panel-head-bar {
+		flex-direction: row;
+		align-items: center;
+		gap: var(--ui-space-4);
+		padding-bottom: var(--ui-space-3);
+		border-bottom: var(--ui-line-w) solid var(--ui-line);
 	}
 
 	.ui-panel-description {
