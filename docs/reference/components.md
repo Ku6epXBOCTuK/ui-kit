@@ -93,13 +93,14 @@ import ConfirmDialog from
 import ControlRow from "@ku6epxboctuk/ui-kit/components/ControlRow.svelte";
 ```
 
-| Prop        | Type                           | Default               | Description                                 |
-| ----------- | ------------------------------ | --------------------- | ------------------------------------------- |
-| `align?`    | `"start" \| "center" \| "end"` | `"end"`               | Cross-axis alignment: start, center or end. |
-| `gap?`      | `string`                       | `"var(--ui-space-2)"` | CSS gap between the children.               |
-| `children?` | `Snippet`                      |                       | Leading content.                            |
-| `end?`      | `Snippet`                      |                       | Snippet pinned to the right.                |
-| `class?`    | `string`                       | `""`                  | Extra classes on the row.                   |
+| Prop        | Type                           | Default               | Description                                    |
+| ----------- | ------------------------------ | --------------------- | ---------------------------------------------- |
+| `align?`    | `"start" \| "center" \| "end"` | `"end"`               | Cross-axis alignment: start, center or end.    |
+| `gap?`      | `string`                       | `"var(--ui-space-2)"` | CSS gap between the children.                  |
+| `wrap?`     | `boolean`                      | `false`               | Lets the children overflow onto a second line. |
+| `children?` | `Snippet`                      |                       | Leading content.                               |
+| `end?`      | `Snippet`                      |                       | Snippet pinned to the right.                   |
+| `class?`    | `string`                       | `""`                  | Extra classes on the row.                      |
 
 ## Field
 

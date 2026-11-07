@@ -6,6 +6,8 @@ interface Props {
 	align?: Align;
 	/** CSS gap between the children. */
 	gap?: string;
+	/** Lets the children overflow onto a second line. */
+	wrap?: boolean;
 	/** Leading content. */
 	children?: Snippet;
 	/** Snippet pinned to the right. */

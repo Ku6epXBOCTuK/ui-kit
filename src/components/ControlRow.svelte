@@ -8,6 +8,8 @@
 		align?: Align;
 		/** CSS gap between the children. */
 		gap?: string;
+		/** Lets the children overflow onto a second line. */
+		wrap?: boolean;
 		/** Leading content. */
 		children?: Snippet;
 		/** Snippet pinned to the right. */
@@ -19,6 +21,7 @@
 	let {
 		align = "end",
 		gap = "var(--ui-space-2)",
+		wrap = false,
 		children,
 		end,
 		class: className = "",
@@ -29,6 +32,7 @@
 	class="ui-control-row {className}"
 	data-ui="control-row"
 	data-align={align}
+	data-wrap={wrap || undefined}
 	style:gap
 >
 	{@render children?.()}
@@ -42,6 +46,10 @@
 		display: flex;
 		align-items: flex-end;
 		min-width: 0;
+	}
+
+	.ui-control-row[data-wrap] {
+		flex-wrap: wrap;
 	}
 
 	.ui-control-row[data-align="start"] {
