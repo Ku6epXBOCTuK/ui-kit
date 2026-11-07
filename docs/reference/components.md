@@ -243,6 +243,18 @@ import Notice from "@ku6epxboctuk/ui-kit/components/Notice.svelte";
 | `children` | `Snippet`                                                               |             | Notice text.                                                               |
 | `class?`   | `string`                                                                | `""`        | Extra classes on the container.                                            |
 
+## PageHeader
+
+```svelte
+import PageHeader from "@ku6epxboctuk/ui-kit/components/PageHeader.svelte";
+```
+
+| Prop       | Type      | Default | Description                                               |
+| ---------- | --------- | ------- | --------------------------------------------------------- |
+| `title`    | `string`  |         | Page title, rendered as the h1.                           |
+| `actions?` | `Snippet` |         | Trailing actions aligned to the right edge, e.g. buttons. |
+| `class?`   | `string`  | `""`    | Extra classes on the header.                              |
+
 ## Panel
 
 ```svelte
