@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.11.0](https://github.com/Ku6epXBOCTuK/ui-kit/compare/db7d09bd7b704c9dedf5443d710e04de636e1000..0.11.0) - 2026-11-21
+#### Features
+- add List component - ([5de3e02](https://github.com/Ku6epXBOCTuK/ui-kit/commit/5de3e0297f561a30d71216be848cfe301e492a1a)) - Ku6epXBOCTuK
+- add PageHeader component - ([36abc67](https://github.com/Ku6epXBOCTuK/ui-kit/commit/36abc67fb985c30d175524ae32de2268a8eee1f4)) - Ku6epXBOCTuK
+- add EmptyState component - ([c3ca8eb](https://github.com/Ku6epXBOCTuK/ui-kit/commit/c3ca8ebdd06f7ffcbbc426dffe4782d7c3e637fd)) - Ku6epXBOCTuK
+- add ControlRow component - ([eead7bb](https://github.com/Ku6epXBOCTuK/ui-kit/commit/eead7bb53fc0509aaba44dbb6df134cb4139182a)) - Ku6epXBOCTuK
+- add Panel component - ([db7d09b](https://github.com/Ku6epXBOCTuK/ui-kit/commit/db7d09bd7b704c9dedf5443d710e04de636e1000)) - Ku6epXBOCTuK
+#### Bug Fixes
+- (**tag-input**) stop Escape from reopening suggestions - ([54d8fb0](https://github.com/Ku6epXBOCTuK/ui-kit/commit/54d8fb022531e85cf8ea916aecbe04803e1e9db1)) - Ku6epXBOCTuK
+
+- - -
+
 ## [0.10.1](https://github.com/Ku6epXBOCTuK/ui-kit/compare/8ebfc8a44430a3ef915ab35d191ccc0efd88c735..0.10.1) - 2026-11-06
 #### Bug Fixes
 - add bindable element for TextArea component - ([8ebfc8a](https://github.com/Ku6epXBOCTuK/ui-kit/commit/8ebfc8a44430a3ef915ab35d191ccc0efd88c735)) - Ku6epXBOCTuK
