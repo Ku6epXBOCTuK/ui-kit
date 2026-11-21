@@ -177,4 +177,61 @@ describe("createTagInput", () => {
 
 		expect(tags).toEqual(["b", "c", "a"]);
 	});
+
+	it("closes on Escape and drops the uncommitted text", () => {
+		const { input, read } = make(["bug"]);
+
+		input.setText("draft");
+		expect(input.select.open).toBe(true);
+
+		expect(input.handleKeydown(key("Escape"))).toBe(true);
+
+		expect(input.select.open).toBe(false);
+		expect(input.text).toBe("");
+		expect(input.select.query).toBe("");
+		expect(read()).toEqual(["bug"]);
+	});
+
+	it("leaves Escape to the parent when the list is closed", () => {
+		const { input } = make();
+
+		expect(input.handleKeydown(key("Escape"))).toBe(false);
+	});
+
+	it("ignores the focus restored after close, then opens again", () => {
+		const { input } = make();
+
+		input.onFocus();
+		expect(input.select.open).toBe(true);
+
+		input.select.hide();
+		input.noteFocusRestored();
+		input.onFocus();
+		expect(input.select.open).toBe(false);
+
+		input.onFocus();
+		expect(input.select.open).toBe(true);
+	});
+
+	it("opens on focus only with text when showAll is off", () => {
+		let tags: string[] = [];
+		const input = createTagInput({
+			value: () => tags,
+			suggestions: () => pool,
+			onChange: (next) => {
+				tags = next;
+			},
+			showAll: () => false,
+		});
+
+		input.onFocus();
+		expect(input.select.open).toBe(false);
+
+		input.setText("do");
+		expect(input.select.open).toBe(true);
+
+		input.select.hide();
+		input.onFocus();
+		expect(input.select.open).toBe(true);
+	});
 });

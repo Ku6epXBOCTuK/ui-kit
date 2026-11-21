@@ -75,6 +75,7 @@
 		onUnknown: (tag) => onunknown?.(tag),
 		lowercase: () => lowercase,
 		validate: () => validate,
+		showAll: () => showAll,
 	});
 
 	let input = $state<HTMLInputElement | null>(null);
@@ -97,7 +98,7 @@
 	}
 
 	function onfocus() {
-		if (showAll || tags.text !== "") tags.select.show();
+		tags.onFocus();
 	}
 
 	function oninput(event: Event & { currentTarget: HTMLInputElement }) {
@@ -242,6 +243,7 @@
 		{trigger}
 		{option}
 		{onkeydown}
+		onFocusRestore={tags.noteFocusRestored}
 		{variant}
 		multiselect
 		listLabel={ariaLabel}

@@ -7,6 +7,7 @@ export interface TagInputConfig {
 	onUnknown?: (tag: string) => Promise<unknown> | void;
 	lowercase?: () => boolean;
 	validate?: () => ((tag: string) => string | null) | undefined;
+	showAll?: () => boolean;
 }
 
 const SEPARATORS = /[\s,]+/;
@@ -16,6 +17,7 @@ export function createTagInput(config: TagInputConfig) {
 	const value = $derived(config.value());
 
 	let text = $state("");
+	let suppressFocusOpen = false;
 
 	const select = createSelect<string>({
 		items: () => suggestions.filter((tag) => !value.includes(tag)),
@@ -85,7 +87,24 @@ export function createTagInput(config: TagInputConfig) {
 		select.setQuery("");
 	}
 
+	function noteFocusRestored() {
+		suppressFocusOpen = true;
+	}
+
+	function onFocus() {
+		if (suppressFocusOpen) {
+			suppressFocusOpen = false;
+			return;
+		}
+		if ((config.showAll?.() ?? true) || text !== "") select.show();
+	}
+
 	function handleKeydown(event: KeyboardEvent): boolean {
+		if (event.key === "Escape" && select.open) {
+			clear();
+			select.hide();
+			return true;
+		}
 		if (event.key === ",") {
 			void commit();
 			return true;
@@ -117,6 +136,8 @@ export function createTagInput(config: TagInputConfig) {
 		normalize,
 		setText,
 		clear,
+		noteFocusRestored,
+		onFocus,
 		add,
 		commit,
 		remove,

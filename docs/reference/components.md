@@ -365,6 +365,7 @@ import Select from "@ku6epxboctuk/ui-kit/components/Select.svelte";
 | `footer?`            | `Snippet`                           |                   | Snippet under the list, for actions such as Clear.                                |
 | `isSelected?`        | `(item: T) => boolean`              | `() => false`     | Whether an item shows as selected; defaults to none.                              |
 | `onkeydown?`         | `(event: KeyboardEvent) => boolean` |                   | Runs before the machine's keyboard handling; return true to mark the key handled. |
+| `onFocusRestore?`    | `() => void`                        |                   | Runs right before focus is returned to the trigger after close.                   |
 | `searchable?`        | `boolean`                           | `false`           | Shows a search input at the top of the list and focuses it on open.               |
 | `searchPlaceholder?` | `string`                            | `"Search"`        | Placeholder and aria-label of the search input.                                   |
 | `emptyLabel?`        | `string`                            | `"Nothing found"` | Text shown when nothing matches the query.                                        |

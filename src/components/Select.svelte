@@ -20,6 +20,8 @@
 		isSelected?: (item: T) => boolean;
 		/** Runs before the machine's keyboard handling; return true to mark the key handled. */
 		onkeydown?: (event: KeyboardEvent) => boolean;
+		/** Runs right before focus is returned to the trigger after close. */
+		onFocusRestore?: () => void;
 		/** Shows a search input at the top of the list and focuses it on open. */
 		searchable?: boolean;
 		/** Placeholder and aria-label of the search input. */
@@ -48,6 +50,7 @@
 		footer,
 		isSelected = () => false,
 		onkeydown,
+		onFocusRestore,
 		searchable = false,
 		searchPlaceholder = "Search",
 		emptyLabel = "Nothing found",
@@ -114,10 +117,12 @@
 			const current = document.activeElement;
 			if (
 				focusBeforeOpen !== null &&
+				current !== focusBeforeOpen &&
 				(current === null ||
 					current === document.body ||
 					root?.contains(current))
 			) {
+				onFocusRestore?.();
 				focusBeforeOpen.focus({ preventScroll: true });
 			}
 			focusBeforeOpen = null;
